@@ -425,7 +425,7 @@
         <label for="search-input" class="toolbar-label">사건·법령 키워드 검색:</label>
         <input type="search" id="search-input" class="search-box" placeholder="예: 색동원, 진술조력인, 장애인복지법 제59조의9, 편의점, 활동지원...">
       </div>
-      <div id="search-status" class="search-status" aria-live="polite">전체 19개 항목이 표시되고 있습니다.</div>
+      <div id="search-status" class="search-status" aria-live="polite">전체 36개 항목이 표시되고 있습니다.</div>
     </div>
 
     <header class="page-header">
@@ -1316,6 +1316,9 @@
       });
 
       searchInput.addEventListener('input', applyFilterAndSearch);
+
+      // 첫 화면에서도 항목 수를 실제 값으로 계산한다(고정 문구가 낡지 않게)
+      applyFilterAndSearch();
     })();
   </script>
 </body>

@@ -223,6 +223,30 @@
       color: var(--primary);
     }
 
+    /* 목차 접기·펼치기 (2026-11-22) — details 요소를 써서 자바스크립트 없이 동작한다 */
+    nav.toc details {
+      margin-bottom: 6px;
+    }
+
+    nav.toc summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 2px 0;
+    }
+
+    nav.toc summary:hover {
+      color: var(--primary-hover);
+    }
+
+    nav.toc details[open] > summary {
+      margin-bottom: 6px;
+    }
+
+    nav.toc .toc-part-link {
+      font-weight: 600;
+    }
+
     /* 본문 섹션 */
     section.category-section {
       margin-bottom: 48px;
@@ -408,89 +432,129 @@
 
     <main id="main-content">
       <nav class="toc" id="toc" aria-label="전체 목차">
-        <h2>전체 목차 (클릭 시 해당 항목으로 이동)</h2>
+        <h2>전체 목차 (구역 이름을 눌러 펼치기)</h2>
 
         <h3>Part 1. 법정 6대 학대 유형별 사건 (장애인복지법 기준)</h3>
         <ul>
-          <li><a href="#sec-physical">1. 신체적 학대</a>
-            <ul>
-              <li><a href="#case-saekdongwon-phys">인천 강화군 거주시설 '색동원' 시설장·종사자 상습 폭행 및 결박 사건</a></li>
-              <li><a href="#case-dawon-phys">인천 연수구 '다원발달센터' 228회 상습 폭행 사건</a></li>
-              <li><a href="#case-haetteuneun-phys">세종 거주시설 '해뜨는집' 전치 12주 중상해 및 부실수사 재수사 사건</a></li>
-              <li><a href="#case-wonhospital-phys">인천 미추홀구 정신의료기관 '원병원' 장기 불법 감금 및 연속 사망 사건</a></li>
-              <li><a href="#case-yegawon-phys">경기 성남 거주시설 '예가원' 종사자 반복 폭행 사망 사건</a></li>
-              <li><a href="#case-gyemyeongwon-phys">거주시설 '계명원' 입소자 가혹행위 및 비리 의혹 사건</a></li>
-              <li><a href="#case-yeouido-phys">지적장애인 집단 가혹행위 2심 실형 판결 사건</a></li>
-              <li><a href="#case-family-prison">가족에 의한 상습 폭행 및 서울구치소 휠체어 압수 인권침해 사안</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>1. 신체적 학대</summary>
+              <ul>
+                <li><a href="#sec-physical" class="toc-part-link">1. 신체적 학대 구역으로 가기</a></li>
+                <li><a href="#case-saekdongwon-phys">인천 강화군 거주시설 '색동원' 시설장·종사자 상습 폭행 및 결박 사건</a></li>
+                <li><a href="#case-dawon-phys">인천 연수구 '다원발달센터' 228회 상습 폭행 사건</a></li>
+                <li><a href="#case-haetteuneun-phys">세종 거주시설 '해뜨는집' 전치 12주 중상해 및 부실수사 재수사 사건</a></li>
+                <li><a href="#case-wonhospital-phys">인천 미추홀구 정신의료기관 '원병원' 장기 불법 감금 및 연속 사망 사건</a></li>
+                <li><a href="#case-yegawon-phys">경기 성남 거주시설 '예가원' 종사자 반복 폭행 사망 사건</a></li>
+                <li><a href="#case-gyemyeongwon-phys">거주시설 '계명원' 입소자 가혹행위 및 비리 의혹 사건</a></li>
+                <li><a href="#case-yeouido-phys">지적장애인 집단 가혹행위 2심 실형 판결 사건</a></li>
+                <li><a href="#case-family-prison">가족에 의한 상습 폭행 및 서울구치소 휠체어 압수 인권침해 사안</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-emotional">2. 정서적 학대</a>
-            <ul>
-              <li><a href="#case-kimchangmin-emo">고(故) 김창민 감독 살해 사건과 목격 장애아동 정서적 학대 유죄 인정 판결</a></li>
-              <li><a href="#case-dawon-emo">인천 연수구 '다원발달센터' 배변 의사 표현 묵살 및 방치 쟁점</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>2. 정서적 학대</summary>
+              <ul>
+                <li><a href="#sec-emotional" class="toc-part-link">2. 정서적 학대 구역으로 가기</a></li>
+                <li><a href="#case-kimchangmin-emo">고(故) 김창민 감독 살해 사건과 목격 장애아동 정서적 학대 유죄 인정 판결</a></li>
+                <li><a href="#case-dawon-emo">인천 연수구 '다원발달센터' 배변 의사 표현 묵살 및 방치 쟁점</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-sexual">3. 성적 학대</a>
-            <ul>
-              <li><a href="#case-saekdongwon-sex">인천 강화군 거주시설 '색동원' 시설장 상습 성폭력 사건</a></li>
-              <li><a href="#case-kagwang-sex">유튜버 '카광' 등 온라인 방송 장애인 학대·성적 착취 의혹 사건</a></li>
-              <li><a href="#case-siloam-sex">부산 '실로암의집' 피해생존자 진실규명 신청 사건 (성추행·폭행·감금)</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>3. 성적 학대</summary>
+              <ul>
+                <li><a href="#sec-sexual" class="toc-part-link">3. 성적 학대 구역으로 가기</a></li>
+                <li><a href="#case-saekdongwon-sex">인천 강화군 거주시설 '색동원' 시설장 상습 성폭력 사건</a></li>
+                <li><a href="#case-kagwang-sex">유튜버 '카광' 등 온라인 방송 장애인 학대·성적 착취 의혹 사건</a></li>
+                <li><a href="#case-siloam-sex">부산 '실로암의집' 피해생존자 진실규명 신청 사건 (성추행·폭행·감금)</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-economic">4. 경제적 착취</a>
-            <ul>
-              <li><a href="#case-nephew-econ">가족(조카)에 의한 중증장애인 수당·수급비 4천만 원 갈취 대법원 파기환송 판결</a></li>
-              <li><a href="#case-saltfarm-econ">전남 영광 염전 장애인 3명 노동력 착취 및 감금 실형 판결</a></li>
-              <li><a href="#case-saekdongwon-econ">인천 강화군 '색동원' 전 시설장 보조금·기숙사비 횡령 추가 기소 사건</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>4. 경제적 착취</summary>
+              <ul>
+                <li><a href="#sec-economic" class="toc-part-link">4. 경제적 착취 구역으로 가기</a></li>
+                <li><a href="#case-nephew-econ">가족(조카)에 의한 중증장애인 수당·수급비 4천만 원 갈취 대법원 파기환송 판결</a></li>
+                <li><a href="#case-saltfarm-econ">전남 영광 염전 장애인 3명 노동력 착취 및 감금 실형 판결</a></li>
+                <li><a href="#case-saekdongwon-econ">인천 강화군 '색동원' 전 시설장 보조금·기숙사비 횡령 추가 기소 사건</a></li>
+              </ul>
+            </details>
           </li>
           <li><a href="#sec-abandonment">5. 유기</a></li>
-          <li><a href="#sec-neglect">6. 방임</a>
-            <ul>
-              <li><a href="#case-cheonggu-neg">대구 '청구재활원' 입소인 간 돌봄 전가 및 급식·보호 방임 판정 사건</a></li>
-              <li><a href="#case-wonhospital-neg">인천 미추홀구 '원병원' 격리실 의료 처치 방임 및 사망 사건</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>6. 방임</summary>
+              <ul>
+                <li><a href="#sec-neglect" class="toc-part-link">6. 방임 구역으로 가기</a></li>
+                <li><a href="#case-cheonggu-neg">대구 '청구재활원' 입소인 간 돌봄 전가 및 급식·보호 방임 판정 사건</a></li>
+                <li><a href="#case-wonhospital-neg">인천 미추홀구 '원병원' 격리실 의료 처치 방임 및 사망 사건</a></li>
+              </ul>
+            </details>
           </li>
         </ul>
 
         <h3>Part 2. 장애인 차별 사건 및 정책·입법 쟁점 (장차법·정책 기준)</h3>
         <ul>
-          <li><a href="#sec-labor">7. 고용·노동 차별 및 일자리 정책</a>
-            <ul>
-              <li><a href="#case-korail-labor">코레일 장애인 제한경쟁채용 최종합격자 시력 기준 불합격 취소 공익소송</a></li>
-              <li><a href="#case-rightsjob-labor">권리중심 중증장애인 맞춤형 공공일자리 예산 삭감 및 조례 재의 요구 사태</a></li>
-              <li><a href="#case-quota-labor">공공부문·사법부 장애인 의무고용 미이행 및 고용촉진기금 미집행 쟁점</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>7. 고용·노동 차별 및 일자리 정책</summary>
+              <ul>
+                <li><a href="#sec-labor" class="toc-part-link">7. 고용·노동 차별 및 일자리 정책 구역으로 가기</a></li>
+                <li><a href="#case-korail-labor">코레일 장애인 제한경쟁채용 최종합격자 시력 기준 불합격 취소 공익소송</a></li>
+                <li><a href="#case-rightsjob-labor">권리중심 중증장애인 맞춤형 공공일자리 예산 삭감 및 조례 재의 요구 사태</a></li>
+                <li><a href="#case-quota-labor">공공부문·사법부 장애인 의무고용 미이행 및 고용촉진기금 미집행 쟁점</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-access">8. 시설·이동·교통 접근권 차별</a>
-            <ul>
-              <li><a href="#case-gs25-access">GS리테일 편의점 출입구 편의시설 확정판결 4년 8개월 불이행과 간접강제 신청</a></li>
-              <li><a href="#case-toilet-access">소규모 근린생활시설·공중화장실 '유효 접근성' 및 설치기준 개선 권고</a></li>
-              <li><a href="#case-calltaxi-access">특별교통수단(장애인콜택시) 이용 거부 손해배상 판결 및 헌재 재판소원</a></li>
-              <li><a href="#case-guidedog-access">시각장애인 보조견(안내견) 동반 카페 출입 거부 사건</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>8. 시설·이동·교통 접근권 차별</summary>
+              <ul>
+                <li><a href="#sec-access" class="toc-part-link">8. 시설·이동·교통 접근권 차별 구역으로 가기</a></li>
+                <li><a href="#case-gs25-access">GS리테일 편의점 출입구 편의시설 확정판결 4년 8개월 불이행과 간접강제 신청</a></li>
+                <li><a href="#case-toilet-access">소규모 근린생활시설·공중화장실 '유효 접근성' 및 설치기준 개선 권고</a></li>
+                <li><a href="#case-calltaxi-access">특별교통수단(장애인콜택시) 이용 거부 손해배상 판결 및 헌재 재판소원</a></li>
+                <li><a href="#case-guidedog-access">시각장애인 보조견(안내견) 동반 카페 출입 거부 사건</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-info">9. 정보접근·의사소통 및 AI·디지털 차별</a>
-            <ul>
-              <li><a href="#case-kiosk-info">무인정보단말기(키오스크) 접근성 미충족 및 비디지털 대안 창구 쟁점</a></li>
-              <li><a href="#case-easyread-info">발달장애인 쉬운 정보 제공 의무 및 점자 대체자료 납본 사각지대</a></li>
-              <li><a href="#case-ai-info">복지·치안·수능 AI 도입에 따른 장애 차별 및 알고리즘 영향평가 쟁점</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>9. 정보접근·의사소통 및 AI·디지털 차별</summary>
+              <ul>
+                <li><a href="#sec-info" class="toc-part-link">9. 정보접근·의사소통 및 AI·디지털 차별 구역으로 가기</a></li>
+                <li><a href="#case-kiosk-info">무인정보단말기(키오스크) 접근성 미충족 및 비디지털 대안 창구 쟁점</a></li>
+                <li><a href="#case-easyread-info">발달장애인 쉬운 정보 제공 의무 및 점자 대체자료 납본 사각지대</a></li>
+                <li><a href="#case-ai-info">복지·치안·수능 AI 도입에 따른 장애 차별 및 알고리즘 영향평가 쟁점</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-justice">10. 사법·행정절차 및 참정권 차별</a>
-            <ul>
-              <li><a href="#case-statement-justice">수사·재판 단계 진술조력인 미배치 문제와 '장애인 등 진술조력법' 제정안</a></li>
-              <li><a href="#case-voting-justice">발달장애인 투표보조 거부 및 참정권 보장 쟁점</a></li>
-              <li><a href="#case-nhrc-justice">국가인권위원회 세종 이전 계획 재검토 요구 (접근권 및 독립성)</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>10. 사법·행정절차 및 참정권 차별</summary>
+              <ul>
+                <li><a href="#sec-justice" class="toc-part-link">10. 사법·행정절차 및 참정권 차별 구역으로 가기</a></li>
+                <li><a href="#case-statement-justice">수사·재판 단계 진술조력인 미배치 문제와 '장애인 등 진술조력법' 제정안</a></li>
+                <li><a href="#case-voting-justice">발달장애인 투표보조 거부 및 참정권 보장 쟁점</a></li>
+                <li><a href="#case-nhrc-justice">국가인권위원회 세종 이전 계획 재검토 요구 (접근권 및 독립성)</a></li>
+              </ul>
+            </details>
           </li>
-          <li><a href="#sec-deinst">11. 탈시설·지역사회 자립 및 복지·건강권 정책</a>
-            <ul>
-              <li><a href="#case-deinst-policy">폐쇄 시설 잔류자 '시설 뺑뺑이'와 지역사회자립법·자립지원 예산 삭감 쟁점</a></li>
-              <li><a href="#case-65age-policy">만 65세 이상 장애인 활동지원 신규 신청 제한 헌재 7대2 합헌 결정</a></li>
-              <li><a href="#case-actreform-policy">장애인권리보장법 시행 준비와 장애인복지법 전부개정안(장애서비스법) 논의</a></li>
-              <li><a href="#case-ilcenter-policy">장애인활동지원기관 주민세 종업원분 부과 및 입법 정비 쟁점</a></li>
-            </ul>
+          <li>
+            <details>
+              <summary>11. 탈시설·지역사회 자립 및 복지·건강권 정책</summary>
+              <ul>
+                <li><a href="#sec-deinst" class="toc-part-link">11. 탈시설·지역사회 자립 및 복지·건강권 정책 구역으로 가기</a></li>
+                <li><a href="#case-deinst-policy">폐쇄 시설 잔류자 '시설 뺑뺑이'와 지역사회자립법·자립지원 예산 삭감 쟁점</a></li>
+                <li><a href="#case-65age-policy">만 65세 이상 장애인 활동지원 신규 신청 제한 헌재 7대2 합헌 결정</a></li>
+                <li><a href="#case-actreform-policy">장애인권리보장법 시행 준비와 장애인복지법 전부개정안(장애서비스법) 논의</a></li>
+                <li><a href="#case-ilcenter-policy">장애인활동지원기관 주민세 종업원분 부과 및 입법 정비 쟁점</a></li>
+              </ul>
+            </details>
           </li>
         </ul>
       </nav>

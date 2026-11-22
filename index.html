@@ -283,6 +283,8 @@
 
     .note-ref {
       display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
       background: var(--badge-bg);
       color: var(--badge-text);
       border: 1px solid var(--border);
@@ -300,8 +302,14 @@
       margin-top: 8px;
     }
 
+    .source-links > * {
+      min-width: 0;
+    }
+
     .source-link {
       display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
       background: var(--primary-bg);
       color: var(--primary);
       border: 1px solid var(--primary);
@@ -329,6 +337,38 @@
 
     .hidden {
       display: none !important;
+    }
+
+    .section-top {
+      margin-top: 22px;
+    }
+
+    /* 넓은 화면에서만 목차를 왼쪽에 고정한다 (2026-11-22 결정: B안).
+       좁은 화면과 글자 확대 상태에서는 지금처럼 위쪽 목차를 그대로 쓴다. */
+    @media (min-width: 1180px) {
+      #top.container {
+        max-width: 1320px;
+      }
+
+      #main-content {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        column-gap: 40px;
+      }
+
+      #main-content > nav.toc {
+        grid-column: 1;
+        grid-row: 1 / span 99;
+        align-self: start;
+        position: sticky;
+        top: 16px;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+      }
+
+      #main-content > :not(nav.toc) {
+        grid-column: 2;
+      }
     }
   </style>
 </head>
@@ -367,7 +407,7 @@
     </header>
 
     <main id="main-content">
-      <nav class="toc" aria-label="전체 목차">
+      <nav class="toc" id="toc" aria-label="전체 목차">
         <h2>전체 목차 (클릭 시 해당 항목으로 이동)</h2>
 
         <h3>Part 1. 법정 6대 학대 유형별 사건 (장애인복지법 기준)</h3>
@@ -487,7 +527,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-dawon-phys" class="case-card">
@@ -504,7 +543,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-haetteuneun-phys" class="case-card">
@@ -522,7 +560,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-wonhospital-phys" class="case-card">
@@ -540,7 +577,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-yegawon-phys" class="case-card">
@@ -558,7 +594,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-gyemyeongwon-phys" class="case-card">
@@ -575,7 +610,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-yeouido-phys" class="case-card">
@@ -592,7 +626,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-family-prison" class="case-card">
@@ -609,8 +642,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-emotional" class="category-section" data-group="abuse">
@@ -631,7 +664,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-dawon-emo" class="case-card">
@@ -648,8 +680,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-sexual" class="category-section" data-group="abuse">
@@ -671,7 +703,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-kagwang-sex" class="case-card">
@@ -690,7 +721,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-siloam-sex" class="case-card">
@@ -707,8 +737,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-economic" class="category-section" data-group="abuse">
@@ -729,7 +759,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-saltfarm-econ" class="case-card">
@@ -746,7 +775,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-saekdongwon-econ" class="case-card">
@@ -761,8 +789,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-abandonment" class="category-section" data-group="abuse">
@@ -775,8 +803,8 @@
             <li><strong>관련 참고 노트:</strong> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span> <span class="note-ref">장애인 학대 개념 및 유형</span></li>
             <li><strong>실무 포인트:</strong> 시설이나 병원에 입소시킨 뒤 보호자가 고의로 연락과 왕래를 끊고 퇴소·전원 절차를 방치하는 경우, 「장애인복지법」 제59조의9 제3호(유기·방임) 해당 여부를 검토하고 지자체 직권 보호조치 및 공공후견 선임을 연계해야 합니다.</li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-neglect" class="category-section" data-group="abuse">
@@ -797,7 +825,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-wonhospital-neg" class="case-card">
@@ -813,8 +840,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <!-- PART 2 -->
@@ -836,7 +863,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-rightsjob-labor" class="case-card">
@@ -855,7 +881,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-quota-labor" class="case-card">
@@ -872,8 +897,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-access" class="category-section" data-group="discrimination">
@@ -895,7 +920,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-toilet-access" class="case-card">
@@ -914,7 +938,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-calltaxi-access" class="case-card">
@@ -932,7 +955,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-guidedog-access" class="case-card">
@@ -948,8 +970,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-info" class="category-section" data-group="discrimination">
@@ -970,7 +992,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-easyread-info" class="case-card">
@@ -987,7 +1008,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-ai-info" class="case-card">
@@ -1005,8 +1025,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-justice" class="category-section" data-group="discrimination">
@@ -1026,7 +1046,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-voting-justice" class="case-card">
@@ -1042,7 +1061,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-nhrc-justice" class="case-card">
@@ -1058,8 +1076,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       <section id="sec-deinst" class="category-section" data-group="discrimination">
@@ -1081,7 +1099,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-65age-policy" class="case-card">
@@ -1097,7 +1114,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-actreform-policy" class="case-card">
@@ -1113,7 +1129,6 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
 
         <article id="case-ilcenter-policy" class="case-card">
@@ -1130,8 +1145,8 @@
               </div>
             </li>
           </ul>
-          <a href="#top" class="back-to-top">목차로 돌아가기</a>
         </article>
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
       </section>
 
       

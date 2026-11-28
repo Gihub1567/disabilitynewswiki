@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장애인학대·차별 및 정책 이슈 아카이브</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+  <style>
+    :root {
+      /* 눈부심을 줄인 차분한 다크 슬레이트 톤 기본 테마 */
+      --bg: #161920;
+      --surface: #1f242e;
+      --surface-alt: #282f3c;
+      --text: #eef2f6;
+      --text-muted: #b4c0d0;
+      --primary: #7cc0ff;
+      --primary-hover: #a5d4ff;
+      --primary-bg: #1e2d42;
+      --border: #364052;
+      --badge-bg: #2c3545;
+      --badge-text: #e2e8f0;
+      --focus-ring: #fbbf24;
+      --font-scale: 1;
+    }
+
+    /* 초고대비(순흑색 배경 + 순백색/노란색 강조) 모드 */
+    body.high-contrast {
+      --bg: #000000;
+      --surface: #0d0d0d;
+      --surface-alt: #1a1a1a;
+      --text: #ffffff;
+      --text-muted: #e5e7eb;
+      --primary: #fde047;
+      --primary-hover: #fef08a;
+      --primary-bg: #1f1b08;
+      --border: #737373;
+      --badge-bg: #262626;
+      --badge-text: #ffffff;
+      --focus-ring: #fde047;
+    }
+
+    body.font-125 { --font-scale: 1.25; }
+    body.font-150 { --font-scale: 1.5; }
+    body.font-200 { --font-scale: 2; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: calc(17px * var(--font-scale));
+      line-height: 1.78;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--primary);
+      color: #0b0e14;
+      padding: 10px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      z-index: 1000;
+    }
+    .skip-link:focus {
+      top: 16px;
+      outline: 3px solid var(--focus-ring);
+    }
+
+    a:focus, button:focus, input:focus {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 20px 80px;
+    }
+
+    /* 접근성 및 검색 컨트롤 영역 */
+    .toolbar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 28px;
+    }
+
+    .toolbar-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .toolbar-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .toolbar-label {
+      font-weight: 700;
+      font-size: 0.92em;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .btn {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.92em;
+      font-weight: 600;
+      cursor: pointer;
+      min-height: 42px;
+    }
+
+    .btn:hover {
+      border-color: var(--primary);
+    }
+
+    .btn[aria-pressed="true"], .btn.active {
+      background: var(--primary);
+      color: #0b0e14;
+      border-color: var(--primary);
+      font-weight: 700;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: inherit;
+      font-size: 1em;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .search-box::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    .search-status {
+      font-size: 0.92em;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    header.page-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      font-weight: 800;
+      line-height: 1.38;
+      margin: 0 0 12px;
+      color: #ffffff;
+    }
+
+    .meta-info {
+      font-size: 0.94em;
+      color: var(--text-muted);
+    }
+
+    /* 목차 영역 */
+    nav.toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 38px;
+    }
+
+    nav.toc h2 {
+      margin-top: 0;
+      font-size: 1.32em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    nav.toc h3 {
+      font-size: 1.1em;
+      margin: 20px 0 10px;
+      color: var(--primary);
+    }
+
+    nav.toc ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    nav.toc li {
+      margin-bottom: 8px;
+    }
+
+    nav.toc a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    nav.toc a:hover {
+      color: var(--primary);
+    }
+
+    /* 목차 접기·펼치기 (2026-11-22) — details 요소를 써서 자바스크립트 없이 동작한다 */
+    nav.toc details {
+      margin-bottom: 6px;
+    }
+
+    nav.toc summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 2px 0;
+    }
+
+    nav.toc summary:hover {
+      color: var(--primary-hover);
+    }
+
+    nav.toc details[open] > summary {
+      margin-bottom: 6px;
+    }
+
+    nav.toc .toc-part-link {
+      font-weight: 600;
+    }
+
+    /* 본문 섹션 */
+    section.category-section {
+      margin-bottom: 48px;
+    }
+
+    section.category-section > h2 {
+      font-size: 1.48em;
+      background: var(--primary-bg);
+      color: var(--primary);
+      padding: 14px 18px;
+      border-left: 5px solid var(--primary);
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .category-desc {
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      padding: 0 4px;
+    }
+
+    article.case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 22px;
+    }
+
+    article.case-card h3 {
+      margin-top: 0;
+      font-size: 1.24em;
+      font-weight: 700;
+      color: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    article.case-card strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    article.case-card ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    article.case-card li {
+      margin-bottom: 10px;
+    }
+
+    article.case-card ul ul {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .note-ref {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.88em;
+      font-weight: 600;
+      margin: 2px 4px 2px 0;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .source-links > * {
+      min-width: 0;
+    }
+
+    .source-link {
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      background: var(--primary-bg);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.88em;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .source-link:hover {
+      background: var(--primary);
+      color: #0b0e14;
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9em;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .section-top {
+      margin-top: 22px;
+    }
+
+    /* 넓은 화면에서만 목차를 왼쪽에 고정한다 (2026-11-22 결정: B안).
+       좁은 화면과 글자 확대 상태에서는 지금처럼 위쪽 목차를 그대로 쓴다. */
+    @media (min-width: 1180px) {
+      #top.container {
+        max-width: min(1760px, 95vw);
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      /* 본문은 1320px까지만 넓히고 남는 폭은 좌우 여백으로 돌린다.
+         한 줄이 너무 길어지면 시선이 좌우로 크게 움직여 읽기 어려워진다(측정: 1920px 화면에서 86자 vs 75자). */
+      #main-content {
+        display: grid;
+        grid-template-columns: 400px minmax(0, 1320px);
+        column-gap: 44px;
+        justify-content: center;
+      }
+
+      #main-content > nav.toc {
+        grid-column: 1;
+        grid-row: 1 / span 99;
+        align-self: start;
+        position: sticky;
+        top: 16px;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+      }
+
+      #main-content > :not(nav.toc) {
+        grid-column: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <div class="container" id="top">
+    <div class="toolbar" role="region" aria-label="화면 설정 및 검색 도구">
+      <div class="toolbar-row">
+        <span class="toolbar-label">화면 대비:</span>
+        <button type="button" class="btn" id="btn-contrast" aria-pressed="false">초고대비(순흑색) 모드 켜기</button>
+        <span class="toolbar-label" style="margin-left: 10px;">글자 크기:</span>
+        <button type="button" class="btn font-btn active" data-scale="100" aria-pressed="true">100%</button>
+        <button type="button" class="btn font-btn" data-scale="125" aria-pressed="false">125%</button>
+        <button type="button" class="btn font-btn" data-scale="150" aria-pressed="false">150%</button>
+        <button type="button" class="btn font-btn" data-scale="200" aria-pressed="false">200%</button>
+      </div>
+      <div class="toolbar-row">
+        <span class="toolbar-label">영역 필터:</span>
+        <button type="button" class="btn filter-btn active" data-filter="all" aria-pressed="true">전체 보기</button>
+        <button type="button" class="btn filter-btn" data-filter="abuse" aria-pressed="false">1부. 학대 사건</button>
+        <button type="button" class="btn filter-btn" data-filter="discrimination" aria-pressed="false">2부. 차별 사건</button>
+        <button type="button" class="btn filter-btn" data-filter="decisions" aria-pressed="false">3부. 판결·결정례</button>
+        <button type="button" class="btn filter-btn" data-filter="statutes" aria-pressed="false">4부. 법령·조례·예산</button>
+      </div>
+      <div class="toolbar-row">
+        <label for="search-input" class="toolbar-label">사건·법령 키워드 검색:</label>
+        <input type="search" id="search-input" class="search-box" placeholder="예: 색동원, 진술조력인, 장애인복지법 제59조의9, 편의점, 활동지원...">
+      </div>
+      <div id="search-status" class="search-status" aria-live="polite">전체 40개 항목이 표시되고 있습니다.</div>
+    </div>
+
+    <header class="page-header">
+      <h1>장애인학대·차별 및 정책 이슈 아카이브</h1>
+      <div class="meta-info">
+        기준일: 2026년 11월 28일 | 대상: 권익옹호기관 동료 및 신입 직원 실무 참고용 | 분류: 1부 장애인복지법 제59조의9 법정 학대 유형 · 2부 장애인차별금지 및 권리구제 등에 관한 법률 영역별 차별 · 3부 판결·결정례 · 4부 법령·조례·예산
+      </div>
+    </header>
+
+    <main id="main-content">
+      
+      <nav class="toc" id="toc" aria-label="전체 목차">
+        <h2>전체 목차 (구역 이름을 눌러 펼치기)</h2>
+
+        <h3>Part 1. 장애인 학대 사건 (장애인복지법 법정 6대 학대 유형)</h3>
+        <ul>
+          <li>
+            <details>
+              <summary>1. 신체적 학대</summary>
+              <ul>
+                <li><a href="#sec-physical" class="toc-part-link">1. 신체적 학대 구역으로 가기</a></li>
+                <li><a href="#case-saekdongwon-phys">인천 강화군 거주시설 '색동원' 시설장·종사자 상습 폭행 및 결박 사건</a></li>
+                <li><a href="#case-dawon-phys">인천 연수구 '다원발달센터' 228회 상습 폭행 사건</a></li>
+                <li><a href="#case-haetteuneun-phys">세종 거주시설 '해뜨는집' 전치 12주 중상해 및 부실수사 재수사 사건</a></li>
+                <li><a href="#case-wonhospital-phys">인천 미추홀구 정신의료기관 '원병원' 장기 불법 감금 및 연속 사망 사건</a></li>
+                <li><a href="#case-yegawon-phys">경기 성남 거주시설 '예가원' 종사자 반복 폭행 사망 사건</a></li>
+                <li><a href="#case-gyemyeongwon-phys">거주시설 '계명원' 입소자 가혹행위 및 비리 의혹 사건</a></li>
+                <li><a href="#case-yeouido-phys">지적장애인 집단 가혹행위 2심 실형 판결 사건</a></li>
+                <li><a href="#case-family-prison">가족에 의한 상습 폭행 및 서울구치소 휠체어 압수 인권침해 사안</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>2. 정서적 학대</summary>
+              <ul>
+                <li><a href="#sec-emotional" class="toc-part-link">2. 정서적 학대 구역으로 가기</a></li>
+                <li><a href="#case-kimchangmin-emo">고(故) 김창민 감독 살해 사건과 목격 장애아동 정서적 학대 유죄 인정 판결</a></li>
+                <li><a href="#case-dawon-emo">인천 연수구 '다원발달센터' 배변 의사 표현 묵살 및 방치 쟁점</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>3. 성적 학대</summary>
+              <ul>
+                <li><a href="#sec-sexual" class="toc-part-link">3. 성적 학대 구역으로 가기</a></li>
+                <li><a href="#case-saekdongwon-sex">인천 강화군 거주시설 '색동원' 시설장 상습 성폭력 사건</a></li>
+                <li><a href="#case-kagwang-sex">유튜버 '카광' 등 온라인 방송 장애인 학대·성적 착취 의혹 사건</a></li>
+                <li><a href="#case-siloam-sex">부산 '실로암의집' 피해생존자 진실규명 신청 사건 (성추행·폭행·감금)</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>4. 경제적 착취</summary>
+              <ul>
+                <li><a href="#sec-economic" class="toc-part-link">4. 경제적 착취 구역으로 가기</a></li>
+                <li><a href="#case-nephew-econ">가족(조카)에 의한 중증장애인 수당·수급비 4천만 원 갈취 대법원 파기환송 판결</a></li>
+                <li><a href="#case-saltfarm-econ">전남 영광 염전 장애인 3명 노동력 착취 및 감금 실형 판결</a></li>
+                <li><a href="#case-saekdongwon-econ">인천 강화군 '색동원' 전 시설장 보조금·기숙사비 횡령 추가 기소 사건</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>5. 유기</summary>
+              <ul>
+                <li><a href="#sec-abandonment" class="toc-part-link">5. 유기 구역으로 가기</a></li>
+                <li><a href="#case-abandonment-note">유기 유형 아카이브 현황 및 실무 기준</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>6. 방임</summary>
+              <ul>
+                <li><a href="#sec-neglect" class="toc-part-link">6. 방임 구역으로 가기</a></li>
+                <li><a href="#case-cheonggu-neg">대구 '청구재활원' 입소인 간 돌봄 전가 및 급식·보호 방임 판정 사건</a></li>
+                <li><a href="#case-wonhospital-neg">인천 미추홀구 '원병원' 격리실 의료 처치 방임 및 사망 사건</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
+        <h3>Part 2. 장애인 차별 사건 (장애인차별금지 및 권리구제 등에 관한 법률 영역별)</h3>
+        <ul>
+          <li>
+            <details>
+              <summary>7. 고용·직업에서의 차별</summary>
+              <ul>
+                <li><a href="#sec-labor" class="toc-part-link">7. 고용·직업에서의 차별 구역으로 가기</a></li>
+                <li><a href="#case-korail-labor">코레일 장애인 제한경쟁채용 최종합격자 시력 기준 불합격 취소 공익소송</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>9. 재화·용역·시설·이동에서의 차별</summary>
+              <ul>
+                <li><a href="#sec-access" class="toc-part-link">9. 재화·용역·시설·이동에서의 차별 구역으로 가기</a></li>
+                <li><a href="#case-gs25-access">GS리테일 편의점 출입구 편의시설 확정판결 4년 8개월 불이행과 간접강제 신청</a></li>
+                <li><a href="#case-toilet-access">소규모 근린생활시설·공중화장실 '유효 접근성' 및 설치기준 개선 권고</a></li>
+                <li><a href="#case-calltaxi-access">특별교통수단(장애인콜택시) 이용 거부 손해배상 판결 및 헌재 재판소원</a></li>
+                <li><a href="#case-guidedog-access">시각장애인 보조견(안내견) 동반 카페 출입 거부 사건</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>10. 정보접근·의사소통에서의 차별</summary>
+              <ul>
+                <li><a href="#sec-info" class="toc-part-link">10. 정보접근·의사소통에서의 차별 구역으로 가기</a></li>
+                <li><a href="#case-kiosk-info">무인정보단말기(키오스크) 접근성 미충족 및 비디지털 대안 창구 쟁점</a></li>
+                <li><a href="#case-easyread-info">발달장애인 쉬운 정보 제공 의무 및 점자 대체자료 납본 사각지대</a></li>
+                <li><a href="#case-ai-info">복지·치안·수능 AI 도입에 따른 장애 차별 및 알고리즘 영향평가 쟁점</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>11. 사법·행정절차·참정권에서의 차별</summary>
+              <ul>
+                <li><a href="#sec-justice" class="toc-part-link">11. 사법·행정절차·참정권에서의 차별 구역으로 가기</a></li>
+                <li><a href="#case-statement-justice">수사·재판 단계 진술조력인 미배치 문제와 '장애인 등 진술조력법' 제정안</a></li>
+                <li><a href="#case-voting-justice">발달장애인 투표보조 거부 및 참정권 보장 쟁점</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
+        <h3>Part 3. 판결·결정례 (법령 해석·위법 판단)</h3>
+        <ul>
+          <li>
+            <details>
+              <summary>13. 헌재·대법원 결정</summary>
+              <ul>
+                <li><a href="#sec-decision-high" class="toc-part-link">13. 헌재·대법원 결정 구역으로 가기</a></li>
+                <li><a href="#case-65age-policy">만 65세 이상 장애인 활동지원 신규 신청 제한 헌재 7대2 합헌 결정</a></li>
+                <li><a href="#case-access-statecomp">소규모 소매점 편의시설 입법부작위 국가배상</a></li>
+                <li><a href="#case-webaccess-alttxt">온라인 쇼핑몰 대체 텍스트 미제공 차별</a></li>
+                <li><a href="#case-calltaxi-seat">발달장애인 장애인콜택시 보조석 탑승 제한</a></li>
+                <li><a href="#case-finance-guardianship">피한정후견인 우체국 예금 거래 일률 제한</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
+        <h3>Part 4. 법령·조례·예산 (제도 동향)</h3>
+        <ul>
+          <li>
+            <details>
+              <summary>16. 법령·입법</summary>
+              <ul>
+                <li><a href="#sec-statute" class="toc-part-link">16. 법령·입법 구역으로 가기</a></li>
+                <li><a href="#case-actreform-policy">장애인권리보장법 시행 준비와 장애인복지법 전부개정안(장애서비스법) 논의</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>18. 예산·재정</summary>
+              <ul>
+                <li><a href="#sec-budget" class="toc-part-link">18. 예산·재정 구역으로 가기</a></li>
+                <li><a href="#case-deinst-policy">폐쇄 시설 잔류자 '시설 뺑뺑이'와 지역사회자립법·자립지원 예산 삭감 쟁점</a></li>
+                <li><a href="#case-rightsjob-labor">권리중심 중증장애인 맞춤형 공공일자리 예산 삭감 및 조례 재의 요구 사태</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary>19. 행정·집행</summary>
+              <ul>
+                <li><a href="#sec-admin" class="toc-part-link">19. 행정·집행 구역으로 가기</a></li>
+                <li><a href="#case-quota-labor">공공부문·사법부 장애인 의무고용 미이행 및 고용촉진기금 미집행 쟁점</a></li>
+                <li><a href="#case-ilcenter-policy">장애인활동지원기관 주민세 종업원분 부과 및 입법 정비 쟁점</a></li>
+                <li><a href="#case-nhrc-justice">국가인권위원회 세종 이전 계획 재검토 요구 (접근권 및 독립성)</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
+      </nav>
+
+      <!-- Part 1. 장애인 학대 사건 (장애인복지법 법정 6대 학대 유형) -->
+      <section id="sec-physical" class="category-section" data-group="abuse">
+        <h2>1. 신체적 학대</h2>
+        <p class="category-desc">폭행, 상해, 가혹행위, 불법 감금 및 신체 구속 등 물리적 유형력을 행사하여 신체적 손상이나 고통을 주는 행위와 관련된 주요 사건입니다(「장애인복지법」 제2조 제3항, 제59조의9 제2호·제5호).</p>
+
+        <article id="case-saekdongwon-phys" class="case-card">
+          <h3>인천 강화군 거주시설 '색동원' 시설장·종사자 상습 폭행 및 결박 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인 거주시설 학대 감시체계와 권익옹호기관 직권조사권 법제화</span> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span></li>
+            <li><strong>사건 개요:</strong> 인천 강화군 중증장애인 거주시설 색동원에서 전 시설장 김모 씨와 종사자들이 장기간에 걸쳐 입소 장애인을 밧줄로 결박하고 상습 폭행·성폭행한 사건입니다. 서울경찰청 특별수사단 수사 결과 확인된 피해 입소자는 총 10명(폭행 7명, 성폭력 3명)이며, 2022년 사회복지시설 법정평가 '이용자 권리' 영역에서 F등급을 받고도 사후 조치가 이루어지지 않아 피해가 장기화되었습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9 제1호·제2호·제5호(성폭력, 상해·폭행, 감금 금지), 제60조의3(거주시설 서비스 최저기준), 「사회복지사업법」 제43조, 「개인정보 보호법」(CCTV 기록 은폐), UN 장애인권리협약(CRPD) 제16조 제3항(독립적 감시) 및 제19조(자립생활과 지역사회 통합).</li>
+            <li><strong>사법·행정 처분 경과 (시간순):</strong>
+              <ul>
+                <li>2022년: 법정 운영평가 '이용자 권리' 영역 F등급 판정(사후 행정처분 미연계).</li>
+                <li>2026년 9월 2일: 서울중앙지법, 전 시설장에게 강간상해 및 장애인복지법 위반 혐의로 징역 15년 및 보호관찰 3년 선고(일부 강간 혐의 무죄 판단).</li>
+                <li>2026년 9월 15일: 전 시설장의 보조금·기숙사비 등 업무상 횡령 혐의 추가 기소 첫 공판에서 검찰 징역 2년 구형.</li>
+                <li>2026년 10월 28일: 서울청 특별수사단, 종사자 13명 조사 후 6명(폭행 5명, CCTV 기록 은폐 1명) 혐의 인정하여 인천경찰청 이송.</li>
+                <li>2026년 10월 29일: 서울고등법원 항소심 첫 공판 개시(피고인 측 진술 신빙성 다툼, 검찰 일부 무죄 및 양형 불복 항소).</li>
+                <li>시설 폐쇄 및 잔류자 현황: 2026년 12월 31일 폐쇄 시한을 앞두고 잔류 거주인 13명 중 9명이 거취 의사 불분명(C그룹), 2명이 시설 유지 희망(D그룹)으로 분류되어 자립지원 신청 배제 및 타 시설 전원 우려 지속.</li>
+              </ul>
+            </li>
+            <li><strong>실무 포인트:</strong> 시설 내 학대 사건은 폭행·성폭력·감금·횡령과 CCTV 은폐가 결합된 복합 학대 양상을 띠므로 초기 조사부터 증거 보전(CCTV·근태·회계 자료)과 전원 전수조사를 병행해야 합니다. 시설 폐쇄 처분 시 의사표현이 어려운 중증 거주인이 자립지원에서 배제되어 다른 시설로 전원되지 않도록 의사결정지원자 연계와 긴급 자립지원 계획을 지자체에 요구해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.kyeonggi.com/article/20261021580142" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 경기일보 (색동원 잔류자·폐쇄 현황)</a>
+                <a href="https://theindigo.co.kr/archives/69632" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 더인디고 (1심 선고 및 장애계 논의)</a>
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=233392" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (전 시설장 횡령 구형)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30653" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (항소심 첫 공판)</a>
+                <a href="https://www.khan.co.kr/article/202610281105001/" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 경향신문 (종사자 6명 추가 혐의 이송)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-dawon-phys" class="case-card">
+          <h3>인천 연수구 '다원발달센터' 228회 상습 폭행 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">인천 다원발달센터 228회 학대 판결 및 배변방해 정서학대 쟁점</span></li>
+            <li><strong>사건 개요:</strong> 인천 연수구 발달장애인 주간활동서비스센터에서 종사자가 5개월간 중증 발달장애인 이용자의 가슴과 턱을 발로 차고 주요 부위를 밟는 등 하루 최대 26회, 총 228회에 걸쳐 상습 폭행·추행한 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9 제2호(신체적 학대), 제59조의3(장애인관련기관 취업제한), 「장애인차별금지법」 제32조(괴롭힘 등의 금지), UN CRPD 제15조·제16조.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 인천지법 제15형사부 1심에서 주범 종사자에게 징역 4년(검찰 구형 7년) 및 취업제한 5년, 관리·감독을 소홀히 한 센터장에게 벌금 1,000만 원을 선고했습니다.</li>
+            <li><strong>실무 포인트:</strong> 공공 바우처 수행기관(주간활동센터 등)에서 반복 학대가 확인되면 지자체에 지정 취소 및 폐쇄 행정처분을 즉시 청구하고, CCTV 포렌식 전수 분석을 통해 행위 횟수를 객관화하며 최장 10년의 취업제한명령 병과 의견서를 제출해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=233903" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (다원발달센터 1심 선고)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-haetteuneun-phys" class="case-card">
+          <h3>세종 거주시설 '해뜨는집' 전치 12주 중상해 및 부실수사 재수사 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">세종 해뜨는집 거주시설 학대 재수사 구속 송치와 진술조력인 동석 의무</span></li>
+            <li><strong>사건 개요:</strong> 2025년 1월 세종시 장애인거주시설 해뜨는집에서 40대 중증 발달장애 입소자가 갈비뼈 6개 골절, 척추 압박골절, 혈흉 등 전치 12주 중상을 입은 사건입니다. 권익옹호기관이 신체적 학대로 판단해 수사를 의뢰했으나 경찰이 초동수사에서 진술조력인을 배석시키지 않고 무혐의 종결했다가, 재수사 끝에 1년 4개월 만에 구속 송치로 뒤집혔습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의4(신고의무), 제59조의7(응급조치), 제59조의8(보조인), 제16조의2(사법경찰관 사건송치 의무화), 「장애인차별금지법」 제26조, UN CRPD 제13조.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2025년 2월 옹호기관 수사의뢰 및 세종시 개선명령 → 2025년 6월 경찰 증거불충분 입건 전 종결 → 2026년 5월 가족 이의신청으로 재수사 착수 → 2026년 10월 13일 진술조력인 참여 조사 후 시설 직원 구속 송치.</li>
+            <li><strong>실무 포인트:</strong> 수사의뢰 단계부터 경찰에 진술조력인·신뢰관계인 동석을 요청하는 공문을 서면으로 발송하고 접수 기록을 남겨야 하며, 불송치 시 30일 이내 이의신청과 자체 조사 기록 보강 제출을 진행해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.joongdo.co.kr/web/view.php?key=20261023010006692" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 중도일보 (해뜨는집 무혐의 뒤집혀 구속 송치)</a>
+                <a href="https://www.yna.co.kr/view/AKR20261022096800063" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 연합뉴스 (경찰 재수사 끝 구속 송치)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-wonhospital-phys" class="case-card">
+          <h3>인천 미추홀구 정신의료기관 '원병원' 장기 불법 감금 및 연속 사망 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">인천 원병원 불법 감금 및 연속 사망 사태</span> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span></li>
+            <li><strong>사건 개요:</strong> 인천 미추홀구 정신병원 원병원에서 2026년 상반기에만 입원환자 4명이 숨졌으며, 입원한 지적장애인 피해자가 전체 입원 425일 중 325일을 외부 잠금장치가 설치된 격리실에 홀로 감금된 채 보낸 뒤 심정지·질식으로 사망한 사건입니다. 격리실에는 주장과 달리 CCTV가 없었습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「정신건강복지법」 제75조(격리 등 제한의 금지), 제46조(입원적합성심사), 「장애인복지법」 제59조의9, 「형법」 제268조(업무상과실치사), UN CRPD 제14조·제15조·제16조.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 국가인권위원회 직권조사 후 병원장을 업무상과실치사·감금·무면허 의료행위 지시 혐의로 검찰 고발하고 영업정지 등 행정처분을 권고했습니다. 2026년 10월 국정감사 증언 이후 복지부가 연말까지 정신의료기관 릴레이 합동점검에 착수했습니다.</li>
+            <li><strong>실무 포인트:</strong> 정신의료기관 내 의문사·감금 의심 사건 접수 시 즉시 격리·강박 일지와 CCTV 영상 보전을 요청하고, 가족 면회 제한 여부를 확인해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.humanrights.go.kr:443/base/board/read?boardManagementNo=24&boardNo=7612352&searchCategory=&page=1&searchType=&searchWord=&menuLevel=3&menuNo=91" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가인권위원회 (환자 4명 사망 정신의료기관 고발·권고)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30643" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (국감 원병원 사망 유족 증언)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-yegawon-phys" class="case-card">
+          <h3>경기 성남 거주시설 '예가원' 종사자 반복 폭행 사망 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">성남 거주시설 중증장애인 폭행 사망 사건</span></li>
+            <li><strong>사건 개요:</strong> 성남시 분당구 장애인거주시설 예가원에서 26년간 거주한 50대 중증장애인이 2026년 7월 21일 사회복지사의 반복된 폭행으로 상해를 입고 이틀 뒤 사망한 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9 제2호(상해·폭행), 제61조(감독), 「형법」 제259조(상해치사).</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 8월 30일 가해 종사자를 상해치사 혐의로 구속 송치했으며, 성남시는 시설폐쇄 절차에 착수하고 관내 시설 전수 인권실태조사를 실시하기로 했습니다.</li>
+            <li><strong>실무 포인트:</strong> 정기 인권점검에서 '특이사항 없음' 판정을 받은 시설에서도 중대 학대가 발생할 수 있으므로, 사망·중상해 발생 시 초기 CCTV 확보와 동료 입소자 전수 면담을 즉시 진행해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30394" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (성남 예가원 폭행 사망 및 폐쇄 요구)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30634" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (국감 시설 책임자 불출석 질타)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-gyemyeongwon-phys" class="case-card">
+          <h3>거주시설 '계명원' 입소자 가혹행위 및 비리 의혹 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인거주시설 계명원 학대·비리 의혹과 수사 지연</span></li>
+            <li><strong>사건 개요:</strong> 장애인 거주시설 계명원에서 종사자들이 발달장애인 이용자의 텀블러에 식초를 넣는 등 가학적 행위를 저지르고 채용 비리 및 보조금 부정 사용을 했다는 의혹이 폭로된 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의4, 제59조의5 제2항(신고 방해·취소 강요 금지), 제59조의7, 제59조의11, 「사회복지사업법」.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 10월 폭로 이후 경찰 수사가 한 달 넘게 지연되어 신속 수사와 지자체 지도·점검 촉구가 이어지고 있습니다.</li>
+            <li><strong>실무 포인트:</strong> 수사 지연 중 재학대와 시설 측의 회유·압박이 발생할 수 있으므로 피해자 분리 조치를 우선 시행하고 신고 방해 정황을 기록해 두어야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.edaily.co.kr/News/Read?newsId=03575206645450232" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 이데일리 (계명원 학대·비리 의혹 및 수사 촉구)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-yeouido-phys" class="case-card">
+          <h3>지적장애인 집단 가혹행위 2심 실형 판결 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">지적장애인 집단 가혹행위 항소심 판결과 장애 이용 범죄 양형</span></li>
+            <li><strong>사건 개요:</strong> 20대 지적장애 남성을 서울 여의도공원으로 유인해 집단 폭행하고 담뱃불과 라이터로 신체에 3도 화상을 입히며 나체 사진을 촬영한 가혹행위 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「성폭력범죄의 처벌 등에 관한 특례법」 위반(강간등상해), 「형법」(특수상해), 「장애인복지법」 제59조의11.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 11월 20일 서울고법 형사8부 항소심에서 주동자 이모 씨의 항소를 기각하고 징역 5년을 유지했습니다(피해자와 합의한 공범은 단기 3년~장기 3년 6개월로 감형).</li>
+            <li><strong>실무 포인트:</strong> 또래 집단 등에 의한 유인·가혹행위 사건에서는 긴급 분리와 의료·심리 지원, 국선변호사·진술조력인 연계를 통해 합의 종용 등 2차 피해를 차단해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.edaily.co.kr/news/read?newsid=03755606645647688&mediaCodeNo=257" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 이데일리 (지적장애인 집단 가혹행위 2심 징역 5년)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-family-prison" class="case-card">
+          <h3>가족에 의한 상습 폭행 및 서울구치소 휠체어 압수 인권침해 사안</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애가 있는 고령 어머니 상습폭행 판결</span> <span class="note-ref">서울구치소 휠체어 압수 및 가혹행위 인권위 진정</span></li>
+            <li><strong>사건 개요 및 경과:</strong> 강원 홍천에서 금전 요구를 거절한 67세 장애 모친을 반복 폭행·협박한 아들에게 춘천지법이 징역 1년 및 취업제한 3년을 선고한 사건과, 서울구치소 노역장 유치 과정에서 중증장애인 수용자에게 개인 휠체어와 욕창 방지 매트리스 등을 제공하지 않아 국가인권위원회에 차별 진정을 제기한 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9, 「장애인차별금지법」 제26조, 「형의 집행 및 수용자의 처우에 관한 법률」 제4조.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://news.ikbc.co.kr/article/view/kbc202609190004" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — KBC광주방송 (고령 장애인 어머니 상습 폭행 실형)</a>
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=233629" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (서울구치소 수용 장애인 편의 미제공 인권위 진정)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30509" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (서울구치소 차별 진정 기자회견)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-emotional" class="category-section" data-group="abuse">
+        <h2>2. 정서적 학대</h2>
+        <p class="category-desc">언어적 폭력, 모욕, 따돌림, 배변·외출 등 기본적 욕구 무시, 학대 장면 목격 등으로 정신건강 및 발달에 해를 끼치는 행위와 관련된 주요 사건입니다(「장애인복지법」 제2조 제3항, 제59조의9 제6호).</p>
+
+        <article id="case-kimchangmin-emo" class="case-card">
+          <h3>고(故) 김창민 감독 살해 사건과 목격 장애아동 정서적 학대 유죄 인정 판결</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">고 김창민 감독 사건 1심 선고와 목격 장애아동 정서적 학대 인정</span></li>
+            <li><strong>사건 개요:</strong> 2025년 10월 경기 구리시에서 소음 시비로 피해자를 폭행해 숨지게 한 가해자 2명이, 범행 현장에 함께 있던 피해자의 중증 자폐성 장애 아들에게 아버지 폭행 장면을 목격하게 하여 극심한 공포를 느끼게 한 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제2조 제3항, 제59조의9 제6호(정서적 학대행위 금지), 제86조, 제59조의12(사후관리), UN CRPD 제16조. 신체적 직접 폭력이 없더라도 <strong>장애 당사자가 가족에 대한 폭력을 목격해 극심한 공포를 겪은 행위 자체를 정서적 학대 유죄로 인정</strong>한 판결입니다.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 11월 19일 의정부지법 남양주지원 형사1부 1심에서 피고인 2명에게 각각 징역 12년(살인·장애인복지법 위반)과 징역 3년(폭행치사·장애인복지법 위반), 장애인 관련 기관 취업제한 10년·5년을 선고했습니다(1심 선고 상태로 항소 여부 확인 필요).</li>
+            <li><strong>실무 포인트:</strong> 학대나 강력범죄 현장을 목격한 장애인 당사자도 정서적 학대 피해자로 보아 심리·정서 지원과 사후관리를 연계하고, 진술조력·국선변호 지원 여부를 점검해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.mk.co.kr/news/society/12213422" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 매일경제 (고 김창민 감독 살해 1심·목격 장애아동 정서적 학대 유죄)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-dawon-emo" class="case-card">
+          <h3>인천 연수구 '다원발달센터' 배변 의사 표현 묵살 및 방치 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">인천 다원발달센터 228회 학대 판결 및 배변방해 정서학대 쟁점</span></li>
+            <li><strong>사건 개요:</strong> 주간활동센터 종사자가 중증 발달장애인 이용자의 반복적인 화장실 이용(배변) 의사 표현을 고의로 무시하고 방치한 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9 제6호(정서적 학대), 「장애인차별금지법」 제32조.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 1심 법원은 신체 폭행 주범에게 징역 4년을 선고하면서도, 배변 방해 행위에 대해서는 "고의적 정서적 학대로 단정하기 어렵다"며 무죄를 선고해 항소심 법리 다툼이 이어지고 있습니다.</li>
+            <li><strong>실무 포인트:</strong> 발달장애인의 배변·생리적 욕구 묵살이 극심한 수치심과 정서적 고통을 유발하는 학대임을 입증하기 위해 임상심리사·정신의학 전문의 소견서를 확보해 수사·재판부에 제출해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=233903" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (다원발달센터 1심 선고 및 배변방해 무죄 논란)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-sexual" class="category-section" data-group="abuse">
+        <h2>3. 성적 학대</h2>
+        <p class="category-desc">성폭력, 강제추행, 그루밍, 의사에 반한 신체 촬영·유포 및 온라인 성적 착취 등 성적 자기결정권을 침해하는 행위와 관련된 주요 사건입니다(「장애인복지법」 제2조 제3항, 제59조의9 제1호, 「성폭력처벌법」 제6조).</p>
+
+        <article id="case-saekdongwon-sex" class="case-card">
+          <h3>인천 강화군 거주시설 '색동원' 시설장 상습 성폭력 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인 거주시설 학대 감시체계와 권익옹호기관 직권조사권 법제화</span> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span></li>
+            <li><strong>사건 개요:</strong> 전 시설장이 폐쇄적 거주시설 내 권력관계를 이용해 여성 발달장애인 입소자들을 상습적으로 성폭행·강제추행한 사건입니다(확인된 성폭력 피해자 3명 포함 총 10명 피해 확인).</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「성폭력범죄의 처벌 등에 관한 특례법」 제6조(장애인에 대한 강간·강제추행 등), 「장애인복지법」 제59조의9 제1호. 1심에서 피해자 1명에 대해 항거불능·위계 입증 부족을 이유로 무죄가 선고되면서 시설 내 권력관계와 발달장애인 진술 특성을 반영한 법리 해석이 핵심 쟁점이 되었습니다.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 9월 2일 1심 징역 15년 선고 후 2026년 10월 29일 서울고등법원 항소심 공판이 진행 중입니다.</li>
+            <li><strong>실무 포인트:</strong> 항소심 단계에서 피고인 측이 피해 장애인의 진술 신빙성을 공격하는 전략에 대응하여, 1심에서 인정된 진술분석 결과와 장애 특수성 판단 기준을 체계적으로 정리해 제출해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://theindigo.co.kr/archives/69632" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 더인디고 (색동원 1심 선고 및 일부 무죄 판단 쟁점)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30653" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (항소심 첫 공판 및 진술 신빙성 공방)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-kagwang-sex" class="case-card">
+          <h3>유튜버 '카광' 등 온라인 방송 장애인 학대·성적 착취 의혹 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">온라인 장애인 학대 신고 급증과 권익옹호기관 피해자 확인 공백</span></li>
+            <li><strong>사건 개요:</strong> 구독자 47만 명 유튜버 등이 해외(태국) 인터넷 생방송 중 지적장애가 의심되는 여성을 집단 학대하고 금전을 착취했다는 의혹이 제기된 사건입니다. 최근 4년간 온라인 장애인 학대 의심 신고가 4.5배 급증했으나 권익옹호기관의 온라인 조사 권한 부재로 피해자 신원 및 장애 여부 확인 단계에서 공백이 드러났습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제2조 제3항, 제59조의4, 제59조의7, 제59조의11, 「폭력행위처벌법」(공동감금), 「성폭력처벌법」 제13조(통신매체이용음란), 「형법」 제2조(내국인 국외범).</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 8월 신고 접수 및 10월 국정감사 공론화 이후, 2026년 11월 6일 법무부가 서울경찰청 광역범죄수사단 신청으로 피고발인 출국금지 조치를 내렸으며 입건 전 조사가 진행 중입니다(별건으로 피해자 조력자를 자처한 변호사도 통신매체이용음란·모욕 혐의로 공소청 송치).</li>
+            <li><strong>실무 포인트:</strong> 온라인 콘텐츠 학대는 영상 삭제 전 원본과 업로드 시각을 즉시 채증해야 하며, 사전 합의서가 있더라도 지적장애 등 취약성이 확인되면 강요에 의한 동의로 다툴 수 있습니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://v.daum.net/v/20261104144723301" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 한겨레 (단독: 온라인 장애인 학대 신고 4.5배·피해자 확인 난항)</a>
+                <a href="https://www.mk.co.kr/news/society/12200562" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 매일경제 (장애여성 학대 의혹 유튜버 출국금지)</a>
+                <a href="https://v.daum.net/v/20261110103111260" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 다음뉴스 (경찰 공동감금 혐의 입건 전 조사)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-siloam-sex" class="case-card">
+          <h3>부산 '실로암의집' 피해생존자 진실규명 신청 사건 (성추행·폭행·감금)</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">실로암의집 피해생존자 진실규명 신청과 시설 학대 구조</span></li>
+            <li><strong>사건 개요:</strong> 형제복지원 사건 법인이 1991년 옛 형제복지원 부지에 설립한 중증장애인요양시설 실로암의집에서 수십 년간 성추행, 폭행, 침대 쇠창살 감금, 치료 지연 방임을 겪은 피해생존자들이 2026년 11월 3기 진실·화해를위한과거사정리위원회에 진실규명을 신청한 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제2조 제3항, 제59조의9, 「장애인차별금지법」 제32조 제4항, 「진실·화해를위한과거사정리 기본법」.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 11월 3기 진실화해위원회 진실규명 신청 접수 및 동일 법인 운영 시설 전수조사 촉구 진행 중입니다.</li>
+            <li><strong>실무 포인트:</strong> 장기 수용시설의 과거 인권침해는 생존자의 진술 기록과 함께 동일 법인 산하 시설의 현재 운영 실태 점검 및 지역사회 자립 지원과 연계해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30726" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (실로암의집 피해생존자 진실규명 신청 증언)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-economic" class="category-section" data-group="abuse">
+        <h2>4. 경제적 착취</h2>
+        <p class="category-desc">장애인의 재산, 공적 급여(수급비·장애인연금 등)를 가로채거나 정당한 대가 없이 노동력을 착취하는 행위와 관련된 주요 사건입니다(「장애인복지법」 제2조 제3항, 제59조의9 제2의2호·제7호).</p>
+
+        <article id="case-nephew-econ" class="case-card">
+          <h3>가족(조카)에 의한 중증장애인 수당·수급비 4천만 원 갈취 대법원 파기환송 판결</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">가족에 의한 경제적 착취 학대와 공갈 포괄일죄 법리 — 대법원 파기환송</span></li>
+            <li><strong>사건 개요:</strong> 조카 A씨가 2021년 11월부터 2025년 6월까지 뇌성마비 중증장애인 외삼촌을 협박해 장애인 수당과 기초생활수급비 약 4,000만 원을 82차례 갈취한 사건입니다. A씨가 중간에 별도 사기죄로 1년간 구속 수감된 기간을 전후해 범행을 이어간 것이 포괄일죄인지 별개 죄인지가 쟁점이 되었습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제2조 제3항(경제적 착취), 제59조의4, 제59조의7, 「형법」 제350조(공갈). 대법원은 <strong>구금 중에도 유사 행위를 하고 석방 직후 같은 범행을 이어갔다면 범의가 단절되지 않았으므로 전체를 포괄일죄로 보아야 한다</strong>고 판시했습니다.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 1심(징역 1년 8개월)과 2심(수감 전후 분리하여 총 징역 4년 선고)을 거쳐, 2026년 11월 3일 대법원 2부가 포괄일죄 법리를 적용해야 한다며 원심을 파기하고 대전지법으로 환송했습니다.</li>
+            <li><strong>실무 포인트:</strong> 친족에 의한 수급비·수당 갈취는 형법상 친족상도례 적용이 배제되는 장애인학대관련범죄(「장애인복지법」 제2조 제4항)이므로 적극적으로 형사고발과 함께 공공후견·금전관리 지원 서비스를 연계해 수급권을 보호해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://v.daum.net/v/20261103172408147" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — SBS (대법원 수감 전후 공갈 포괄일죄 파기환송)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-saltfarm-econ" class="case-card">
+          <h3>전남 영광 염전 장애인 3명 노동력 착취 및 감금 실형 판결</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">염전 노동착취·감금 사건 실형 판결과 취약장애인 착취 구조</span></li>
+            <li><strong>사건 개요:</strong> 전남 영광군에서 염전을 운영한 A씨(61)가 갈 곳 없고 자립 능력이 부족한 장애인 3명을 최장 5년간 하루 평균 17시간씩 일하게 하고 임금 합계 3억 원 상당을 지급하지 않았으며, 손목을 빨랫줄로 묶어 소금창고 대들보에 매달거나 차량 트렁크에 가두는 등 가혹행위를 저지른 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제2조 제3항, 제59조의9 제2의2호(노동력 착취)·제5호(감금), 제59조의3(취업제한), 「근로기준법」 제43조(임금 지급).</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 11월 11일 광주지법 형사13부 1심에서 염전주 A씨에게 징역 4년 6개월과 장애인 관련 기관 취업제한 5년을 선고하고, 가담한 관계자 2명에게도 실형·집행유예를 선고했습니다.</li>
+            <li><strong>실무 포인트:</strong> 노동력 착취 사건은 권익옹호기관의 학대 신고·분리 조치와 동시에 관할 고용노동청 임금체불 진정, 무허가 직업소개소 경로 점검, 피해자 지역사회 자립·주거 연계를 병행해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.yna.co.kr/view/AKR20261111118900054" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 연합뉴스 (영광 염전 장애인 노동착취·감금 1심 징역 4년 6개월)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-saekdongwon-econ" class="case-card">
+          <h3>인천 강화군 '색동원' 전 시설장 보조금·기숙사비 횡령 추가 기소 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인 거주시설 학대 감시체계와 권익옹호기관 직권조사권 법제화</span></li>
+            <li><strong>사건 개요:</strong> 성폭력 사건과 별개로 전 시설장이 장애인거주시설 기능보강사업 보조금과 기숙사비·법인전입금 등을 사적으로 유용한 업무상 횡령 사건입니다.</li>
+            <li><strong>사법·행정 처분 경과:</strong> 2026년 9월 15일 서울중앙지법 첫 공판에서 검찰이 징역 2년을 구형했습니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=233392" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (색동원 전 시설장 보조금 횡령 혐의 징역 2년 구형)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-abandonment" class="category-section" data-group="abuse">
+        <h2>5. 유기</h2>
+        <p class="category-desc">보호·감독 의무가 있는 자가 장애인을 의도적으로 버리거나 연락·왕래를 단절하는 행위와 관련된 기준입니다(「장애인복지법」 제2조 제3항, 제59조의9 제3호 전단).</p>
+
+        <article id="case-abandonment-note" class="case-card">
+          <h3>유기 유형 아카이브 현황 및 실무 기준</h3>
+          <ul>
+            <li><strong>현재 아카이브 상태:</strong> 현재 보관함 내 개별 위키 노트로 독립 정리된 순수 '유기' 단독 사건은 없으나, 거주시설 입소 후 가족과의 단절 및 방치 사례가 아래 방임 및 시설 폐쇄 후 전원 공백 노트들과 복합적으로 연결되어 있습니다.</li>
+            <li><strong>관련 참고 노트:</strong> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span> <span class="note-ref">장애인 학대 개념 및 유형</span></li>
+            <li><strong>실무 포인트:</strong> 시설이나 병원에 입소시킨 뒤 보호자가 고의로 연락과 왕래를 끊고 퇴소·전원 절차를 방치하는 경우, 「장애인복지법」 제59조의9 제3호(유기·방임) 해당 여부를 검토하고 지자체 직권 보호조치 및 공공후견 선임을 연계해야 합니다.</li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-neglect" class="category-section" data-group="abuse">
+        <h2>6. 방임</h2>
+        <p class="category-desc">보호의무자 또는 시설 종사자가 의식주, 위생, 필요한 의료적 처치, 안전 보호를 소홀히 하거나 돌봄 의무를 타인에게 전가하는 행위와 관련된 주요 사건입니다(「장애인복지법」 제2조 제3항, 제59조의9 제3호 후단).</p>
+
+        <article id="case-cheonggu-neg" class="case-card">
+          <h3>대구 '청구재활원' 입소인 간 돌봄 전가 및 급식·보호 방임 판정 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">대구 청구재활원 입소인 돌봄 전가 학대 판정</span></li>
+            <li><strong>사건 개요:</strong> 대구 대형 장애인 거주시설 청구재활원에서 종사자가 수행해야 할 중증 입소인의 식사 보조, 기저귀 갈기, 목욕, 방 청소 등의 돌봄 노동을 다른 지적장애 입소자에게 상습적으로 전가하고 방임한 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제59조의9 제3호(보호·감독 의무 소홀 및 방임)·제6호(정서적 학대), 「사회복지사업법」 제34조(시설의 운영기준).</li>
+            <li><strong>사법·행정 처분 경과:</strong> 장애인권익옹호기관과 지자체 합동 조사 결과 정서적·신체적 학대 및 방임으로 공식 판정되어 시설장 교체 권고, 개선명령 행정처분 및 관련 종사자 사법경찰관 송치가 진행되었습니다.</li>
+            <li><strong>실무 포인트:</strong> 거주시설 현장조사 시 입소자 간 신변보조·식사보조 전가 정황을 반드시 면담 확인하고, 입소자 일과표와 종사자 근무일지(야간·식사시간 실제 배치 인력)를 대조해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30400" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (전국 시설 인권참사 및 청구재활원 등 공동대응)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-wonhospital-neg" class="case-card">
+          <h3>인천 미추홀구 '원병원' 격리실 의료 처치 방임 및 사망 사건</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">인천 원병원 불법 감금 및 연속 사망 사태</span></li>
+            <li><strong>사건 개요:</strong> 외부 잠금장치가 있는 격리실에 325일간 장기간 격리된 지적장애인 입원환자에 대해 적절한 의료적 관찰과 보호를 소홀히 하여 질식 사망에 이르게 한 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「정신건강복지법」 제75조, 「장애인복지법」 제59조의9 제3호(방임), 「형법」 제268조(업무상과실치사).</li>
+            <li><strong>실무 포인트:</strong> 의료기관 및 거주시설에서 건강 이상 징후가 있었음에도 상급병원 이송이나 응급처치를 지연한 경우 진료기록부·간호기록지·투약내역을 즉시 확보해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.humanrights.go.kr:443/base/board/read?boardManagementNo=24&boardNo=7612352&searchCategory=&page=1&searchType=&searchWord=&menuLevel=3&menuNo=91" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가인권위원회 (원병원 환자 사망 및 관리 소홀 고발 결정)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <!-- Part 2. 장애인 차별 사건 (장애인차별금지 및 권리구제 등에 관한 법률 영역별) -->
+      <section id="sec-labor" class="category-section" data-group="discrimination">
+        <h2>7. 고용·직업에서의 차별</h2>
+        <p class="category-desc">모집·채용, 임금·복리후생, 교육·배치·승진, 정년·퇴직·해고에서의 차별과 장애인 의무고용·공공일자리 제도를 둘러싼 쟁점입니다(「장애인차별금지 및 권리구제 등에 관한 법률」 제10조~제12조, 「장애인고용촉진 및 직업재활법」).</p>
+
+        <article id="case-korail-labor" class="case-card">
+          <h3>코레일 장애인 제한경쟁채용 최종합격자 시력 기준 불합격 취소 공익소송</h3>
+          <ul>
+            <li><strong>관련 브리핑·노트:</strong> <span class="note-ref">2026년 10월 29일 일일 브리핑</span> <span class="note-ref">20 법률·정책·판례 MOC</span></li>
+            <li><strong>사안 개요:</strong> 2026년 상반기 코레일 신입사원 장애인제한경쟁채용 사무영업 직렬에 최종합격한 시각장애인이, 채용 이후 운전·관제 업무자에게 적용되는 「철도안전법 시행령」 제21조의 신호기 취급업무 신체검사에서 시력 기준 미달을 이유로 전화로 불합격(합격 취소) 통보를 받은 사건입니다. 검사 의사는 "행정 업무에 한해 합격 처리"라고 기재했으나 임용이 배제되었습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지법」 제10조 제1항(고용상 차별 금지), 제11조 제1항 제5호(시험·평가 과정의 정당한 편의), 제12조 제1항(채용 전 의학적 검사 금지), 「근로기준법」 제27조(해고사유 등의 서면 통지), 「장애인고용촉진법」 제27조·제28조의2, UN CRPD 제27조.</li>
+            <li><strong>진행 경과:</strong> 2026년 10월 29일 장애인차별금지추진연대 등이 근로자 지위 확인과 임금·위자료 지급을 구하는 공익소송을 제기했습니다.</li>
+            <li><strong>실무 포인트:</strong> 직무 본질과 무관한 일률적 신체검사 기준으로 장애인 합격자를 배제하는 것은 고용 차별에 해당하므로, 채용 신체검사 기준의 직무 관련성과 서면 통지 절차 준수 여부를 점검해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ddask.net/post/2715" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 장애인차별금지추진연대 (코레일 시각장애인 채용차별 공익소송 제기)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-access" class="category-section" data-group="discrimination">
+        <h2>9. 재화·용역·시설·이동에서의 차별</h2>
+        <p class="category-desc">재화와 용역의 제공, 토지·건물의 매매·임대, 금융상품, 시설물의 접근·이용, 이동 및 교통수단에서의 차별입니다(「장애인차별금지 및 권리구제 등에 관한 법률」 제15조~제19조, 「장애인·노인·임산부 등의 편의증진 보장에 관한 법률」, 「교통약자의 이동편의 증진법」).</p>
+
+        <article id="case-gs25-access" class="case-card">
+          <h3>GS리테일 편의점 출입구 편의시설 확정판결 4년 8개월 불이행과 간접강제 신청</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">GS리테일 편의점 접근권 확정판결 불이행과 간접강제 신청</span></li>
+            <li><strong>사안 개요:</strong> 2022년 2월 편의점 출입구에 휠체어 접근 편의시설을 설치하라는 법원 판결이 확정되었으나, 이행기한(2023년 3월)이 지나고 4년 8개월이 넘도록 전국 가맹점 1만 7,747곳 중 약 41%(7,266곳)에 경사로가 설치되지 않고 '출입 가능'으로 분류된 점포조차 계단과 턱이 남아 있는 문제입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지법」 제4조 제1항 제3호(정당한 편의 제공 거부), 제18조(시설물 접근·이용의 차별금지), 「민사집행법」 제261조(간접강제), 「장애인·노인·임산부 등의 편의증진 보장에 관한 법률」 제8조, UN CRPD 제9조.</li>
+            <li><strong>진행 경과:</strong> 2026년 11월 18일 장애인 당사자와 장애인차별금지추진연대 등이 서울중앙지방법원에 GS리테일을 상대로 간접강제 신청서를 제출했습니다.</li>
+            <li><strong>실무 포인트:</strong> 관할 지역 편의시설 실태를 사진과 단차 실측 목록으로 증거화하여 지자체 시정 요구 및 국가인권위 진정을 병행하고, 확정판결 불이행 사안에는 간접강제 절차를 적극 검토합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://theindigo.co.kr/archives/70935" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 더인디고 (GS리테일 확정판결 4년 8개월 불이행 간접강제 신청)</a>
+                <a href="https://v.daum.net/v/20261116050307559" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — CBS노컷뉴스 (단독: 판결 4년째 안 지킨 GS 강제집행 위기)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-toilet-access" class="case-card">
+          <h3>소규모 근린생활시설·공중화장실 '유효 접근성' 및 설치기준 개선 권고</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">공중이용시설 장애인 접근권과 편의시설 면적기준 개선 권고</span> <span class="note-ref">장애인 화장실 유효 접근성과 공중화장실 법령 체계</span></li>
+            <li><strong>사안 개요:</strong> 편의증진법상 '바닥면적 50㎡ 미만' 및 '1998년 이전 건축물' 예외 규정으로 식당·카페 등 생활 밀착형 시설에 경사로와 장애인화장실이 설치되지 않고, 설치된 화장실조차 출입구 단차와 내부 회전공간 부족으로 실제 이용이 불가능한 구조적 배제 문제입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인등편의법」 제7조·제8조, 「장애인차별금지법」 제18조, 「공중화장실 등에 관한 법률」, 대법원 전원합의체 2022다289051 판결(접근권은 인간의 존엄을 보장하기 위한 기본권).</li>
+            <li><strong>진행 경과:</strong> 2026년 10월 국가인권위원회가 복지부·국토부 등 5개 부처에 면적·건축시기 예외 기준 전면 재검토 및 경사로 설치 세액공제·도로점용 감면을 권고했고, 2026년 11월 19일 세계 화장실의 날을 맞아 근린생활시설 장애인화장실 설치 의무화를 촉구하는 집단진정이 제기되었습니다.</li>
+            <li><strong>실무 포인트:</strong> 현장 점검 시 단순 설치 유무('출입 가능')가 아니라 내부 회전 반경과 활동지원사 동행 이용 가능 여부('체류·이용 가능', 유효 접근성)를 기준으로 점검해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.humanrights.go.kr/base/board/read?boardManagementNo=24&boardNo=7612366&menuLevel=3&menuNo=91" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가인권위원회 (공중이용시설 장애인 접근권 증진 권고)</a>
+                <a href="https://v.daum.net/v/20261112112244880" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 오마이뉴스 (휠체어로 갈 수 있어도 머물 수 없는 화장실)</a>
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234716" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (근린생활시설 장애인화장실 설치 의무화 집단진정)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-calltaxi-access" class="case-card">
+          <h3>특별교통수단(장애인콜택시) 이용 거부 손해배상 판결 및 헌재 재판소원</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">헌법재판소 장애인 이동권 재판소원 공개변론</span> <span class="note-ref">특별교통수단(장애인콜택시) 이용 대상·요금 결정 구조</span></li>
+            <li><strong>사안 개요:</strong> 보행상 심한 장애가 아니라는 이유로 종합적 중증장애인의 특별교통수단 이용을 거부한 서울시·서울시설공단에 대해 서울중앙지법이 차별로 판단해 손해배상(100만 원)을 인정한 판결과, 버스 이동권 의무 이행 범위를 '향후 탑승할 구체적 개연성이 있는 노선'으로 한정한 대법원 판결에 불복해 제기된 헌법재판소 재판소원 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「교통약자의 이동편의 증진법」 제3조·제16조 및 시행규칙 제5조·제6조, 「장애인차별금지법」 제19조(이동 및 교통수단 등에서의 차별금지)·제46조(손해배상)·제48조(법원의 구제조치), UN CRPD 제9조·제20조.</li>
+            <li><strong>진행 경과:</strong> 헌법재판소가 2027년 1월 14일 대심판정에서 장애인 이동권 재판취소(재판소원) 사건 공개변론을 열기로 확정했습니다.</li>
+            <li><strong>실무 포인트:</strong> 지자체 특별교통수단의 법정대수 충족 여부뿐 아니라 실제 24시간 운행에 필요한 운전인력 배치 비율, 배차 대기시간, 관외 이동 제한 규정을 함께 점검해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.yna.co.kr/view/AKR20261112165200004?section=society/all" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 연합뉴스 (헌법재판소 내년 1월 장애인 이동권 재판소원 변론)</a>
+                <a href="https://www.hani.co.kr/arti/society/society_general/1284066.html" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 한겨레 (장애인콜택시 이용 거부 서울시 차별 손해배상 판결)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-guidedog-access" class="case-card">
+          <h3>시각장애인 보조견(안내견) 동반 카페 출입 거부 사건</h3>
+          <ul>
+            <li><strong>관련 브리핑:</strong> <span class="note-ref">2026년 10월 30일 일일 브리핑</span> <span class="note-ref">2026년 11월 4일 일일 브리핑</span></li>
+            <li><strong>사안 개요:</strong> 2026년 10월 서울의 한 카페에서 시각장애인 교원과 안내견 일행이 식품 위생과 다른 손님 허락 필요 등을 이유로 출입을 거부당한 사건입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인복지법」 제40조 제3항(정당한 사유 없는 보조견 출입 거부 금지 — 위생·타 손님 동의는 정당한 사유 불인정), 「장애인차별금지법」 제4조 제1항 제6호(보조견의 정당한 사용 방해 금지)·제18조·제38조.</li>
+            <li><strong>실무 포인트:</strong> 거부 시각·장소·사업주 발언과 목격자 진술을 기록해 국가인권위 진정 및 관할 지자체 과태료·행정지도를 요청합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234271" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (안내견 동반 시각장애 교원 카페 출입 거부)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-info" class="category-section" data-group="discrimination">
+        <h2>10. 정보접근·의사소통에서의 차별</h2>
+        <p class="category-desc">무인정보단말기(키오스크), 웹·문서 접근성, 발달장애인 쉬운 정보, 수어·점자 제공 및 인공지능(AI) 알고리즘 차별과 관련된 쟁점입니다(「장애인차별금지 및 권리구제 등에 관한 법률」 제20조~제23조, 「디지털포용법」 제19조~제21조).</p>
+
+        <article id="case-kiosk-info" class="case-card">
+          <h3>무인정보단말기(키오스크) 접근성 미충족 및 비디지털 대안 창구 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">WebAIM 화면낭독기 사용자 설문 11차 — PDF 접근성 85.6%와 다중 스크린리더 점검</span> <span class="note-ref">2026년 10월 23일 일일 브리핑</span></li>
+            <li><strong>사안 개요:</strong> 전남광주 공공기관 무인정보단말기의 22.4%(옛 전남 지역 31.2%)가 음성 안내·점자 키패드·이어폰 단자 등 장애인 접근성 검증 기준을 충족하지 못한 실태와, 소규모 사업장의 배리어프리 키오스크 설치 의무 완화 시도에 대한 장애계 반발 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지법」 제20조(정보접근에서의 차별금지)·제21조(정보통신·의사소통 등에서의 정당한 편의제공), 「디지털포용법」(시행 2026-01-22) 제19조(접근성 보장)·제20조(무인정보단말기 이용 편의 제공)·제21조(접근성 품질인증), UN CRPD 제9조·제21조.</li>
+            <li><strong>실무 포인트:</strong> 디지털 기기 접근이 어려운 장애인을 위해 대면 창구·수기 확인 등 비디지털 대체 수단을 병행 유지하도록 요구하고, 접근성 진단은 JAWS·NVDA·VoiceOver 등 다중 스크린리더 환경에서 검증하도록 요구합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.nocutnews.co.kr/news/6595528" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 노컷뉴스 (전남광주 공공기관 키오스크 22.4% 접근성 미충족)</a>
+                <a href="https://webaim.org/projects/screenreadersurvey11/" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — WebAIM (화면낭독기 사용자 설문 11차 결과 원문)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-easyread-info" class="case-card">
+          <h3>발달장애인 쉬운 정보 제공 의무 및 점자 대체자료 납본 사각지대</h3>
+          <ul>
+            <li><strong>관련 브리핑:</strong> <span class="note-ref">2026년 11월 9일 일일 브리핑</span> <span class="note-ref">2026년 11월 20일 일일 브리핑</span></li>
+            <li><strong>사안 개요:</strong> 발달장애인이 여권 신청서, 병원 서류, 선거 공보 등 일상 행정·의료 정보를 이해하기 쉬운 형태로 제공받지 못하는 문제와, 시각장애인 점자도서·대체자료 제작용 디지털 원본 파일의 발행기관 제출률이 75.5%에 그쳐 4분의 1이 미제출되는 사각지대 문제입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「발달장애인 권리보장 및 지원에 관한 법률」 제10조 제1항(이해하기 쉬운 형태의 정책정보 제공), 「점자법」 제5조(국가와 지자체의 책무), 「장애인차별금지법」 제20조·제21조.</li>
+            <li><strong>실무 포인트:</strong> 공공기관 안내문·서식 작성 시 쉬운 말 변환본 병기를 요구하고, 점자·음성 대체자료 제작을 위한 디지털 원본 미제출 기관에 대한 시정 및 진정을 검토합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234762" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (여권·병원 서류 발달장애인 쉬운 정보 제공 요구)</a>
+                <a href="https://v.daum.net/v/20261108160342833" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 머니투데이 (단독: 점자도서 디지털파일 미제출 25%)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-ai-info" class="case-card">
+          <h3>복지·치안·수능 AI 도입에 따른 장애 차별 및 알고리즘 영향평가 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">정당한 편의로서의 AI와 지식노동 참여 — 인식론적 조력</span> <span class="note-ref">장애와 AI 건강형평성 — 당사자 참여와 구조적 장벽</span> <span class="note-ref">복지·돌봄 AI 대전환 로드맵과 장애인 거주시설 스마트 돌봄 도입 쟁점</span></li>
+            <li><strong>사안 개요:</strong> 복지부의 돌봄 AI 로드맵 추진 과정에서 데이터 편향으로 인한 복지 사각지대 배제 우려, 거주시설 스마트 돌봄 기기의 사생활 침해 문제, 수능 AI 부정행위 대책으로 인한 보청기·인공와우 착용 청각장애 수험생 오인 차별 우려, 직장·대학 내 장애인의 보조 AI 도구 사용 제한 문제 등이 제기된 쟁점입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」(인공지능기본법), 「장애인차별금지법」 제11조·제20조·제21조, UN CRPD 제4조 제3항·제9조·제22조(사생활).</li>
+            <li><strong>실무 포인트:</strong> 공공 AI 시스템 도입 시 장애인 당사자 참여와 사전 장애영향평가를 요구하고, 고위험 영역에서 완전 자동화 결정 대신 사람에 의한 대안 창구 및 설명 요구권을 보장하도록 점검합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.mohw.go.kr/board.es?mid=a10503010100&bid=0027&act=view&list_no=1492156&tag=&nPage=1" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 보건복지부 (복지·돌봄 AI 대전환 로드맵 보도자료)</a>
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234724" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (수능 AI 부정행위 대책 청각장애 수험생 차별 우려)</a>
+                <a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0001663" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — PLOS Digital Health (장애와 AI 건강형평성 논문 원문)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-justice" class="category-section" data-group="discrimination">
+        <h2>11. 사법·행정절차·참정권에서의 차별</h2>
+        <p class="category-desc">경찰 수사, 재판, 교정시설 수용, 투표 및 권리구제 기관 접근 과정에서의 정당한 편의 제공과 절차적 권리 보장 쟁점입니다(「장애인차별금지 및 권리구제 등에 관한 법률」 제26조·제27조, UN CRPD 제12조·제13조·제29조).</p>
+
+        <article id="case-statement-justice" class="case-card">
+          <h3>수사·재판 단계 진술조력인 미배치 문제와 '장애인 등 진술조력법' 제정안</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인 등 진술조력법 제정안과 사법절차 의사소통 보장</span> <span class="note-ref">세종 해뜨는집 거주시설 학대 재수사 구속 송치와 진술조력인 동석 의무</span></li>
+            <li><strong>사안 개요:</strong> 심층면접 조사 결과 장애인 8명 중 6명이 진술조력인 없이 홀로 수사기관 조사를 받았고, 전국 권익옹호기관 고발 424건 중 64건이 의사소통 곤란 등을 이유로 불송치되는 사법 공백이 드러나면서, 진술조력 지원 대상을 피의자·고소인·참고인·증인까지 확대하고 수사기관·법원의 확인·고지 의무를 명시한 「장애인·아동·청소년 등의 진술조력에 관한 법률안」이 2026년 11월 17일 대표발의되었습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지법」 제26조(사법·행정절차 및 서비스 제공에서의 차별금지), 「발달장애인법」 제10조·제12조(형사사법 절차상 조력), 「장애인복지법」 제59조의8(보조인), UN CRPD 제13조(사법에 대한 접근).</li>
+            <li><strong>실무 포인트:</strong> 상담 및 사건 지원 초기부터 당사자의 의사소통 특성을 확인해 수사·재판 기관에 서면으로 정당한 편의(진술조력인, 신뢰관계인, 쉬운 설명, AAC 등)를 신청하고 미제공 시 인권위 진정 근거로 기록합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://theindigo.co.kr/archives/70913" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 더인디고 (최보윤 의원 장애인 등 진술조력법 대표발의)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-voting-justice" class="case-card">
+          <h3>발달장애인 투표보조 거부 및 참정권 보장 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">발달장애인 참정권 대법원 계류와 선관위 투표보조 불수용</span></li>
+            <li><strong>사안 개요:</strong> 선거관리위원회가 지침 변경 이후 발달장애인의 투표보조를 사실상 거부하고 투표소 현장에서 "자기 생각이 없다"는 이유로 투표를 제한하는 차별 사례가 이어지고 있으며, 국가인권위원회의 발달장애인 투표보조 허용 권고도 사실상 불수용된 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지법」 제27조(참정권), 「장애인복지법」 제26조(선거권 행사를 위한 편의 제공), 「공직선거법」 제157조, 헌법 제24조(선거권), UN CRPD 제29조(정치적·공적 생활에의 참여).</li>
+            <li><strong>실무 포인트:</strong> 대법원 본안 판단 계류 중이더라도 투표소 현장의 투표보조 거부 및 의사표현 제한 사례를 수집해 국가인권위 진정과 선관위 지침 개선 요구 근거로 활용합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234783" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (대법원에 묶인 발달장애인 참정권·선관위 투표보조 거부)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <!-- Part 3. 판결·결정례 (법령 해석·위법 판단) -->
+      <section id="sec-decision-high" class="category-section" data-group="decisions">
+        <h2>13. 헌재·대법원 결정</h2>
+        <p class="category-desc">헌법재판소의 위헌·합헌 결정과 대법원(전원합의체 포함) 판결로서 법령의 해석이나 존폐를 정한 결정입니다. 개별 사건의 형사·민사 책임 판단은 해당 사건 구역에 두고, 제도를 정한 결정만 이 구역에 넣습니다.</p>
+
+        <article id="case-65age-policy" class="case-card">
+          <h3>만 65세 이상 장애인 활동지원 신규 신청 제한 헌재 7대2 합헌 결정</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">헌재 만 65세 이상 활동지원 신규 신청 제한 합헌 결정과 장애노인 자립생활권</span></li>
+            <li><strong>사안 개요:</strong> 전남 섬 염전에서 10여 년간 노동착취를 당해 65세 이전에 활동지원급여를 신청하지 못했던 피해 장애인이 지역사회 복귀 후 신청했다가 연령 초과로 거부당한 사건에서, 헌법재판소가 2026년 10월 22일 「장애인활동 지원에 관한 법률」 제5조 제2호에 대해 재판관 7대2로 합헌 결정을 내린 사안입니다(2인은 국가 책임으로 신청하지 못한 장애노인에 대한 불합리한 차별이라며 반대의견 제시).</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인활동 지원에 관한 법률」 제5조 제2호, 「노인장기요양보험법」, 헌법 제11조·제34조, UN CRPD 제19조·제28조.</li>
+            <li><strong>실무 포인트:</strong> 강제노동·시설수용 등 본인의 책임 없는 사유로 65세 이전에 급여를 신청하지 못한 피해 장애인에 대한 입법적 경과조치 마련과 장기요양 전환 시 급여 감소 보전 대책을 요구하는 근거로 활용합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30617" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (헌재 만 65세 이상 활동지원 신규 신청 제한 7대2 합헌)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-access-statecomp" class="case-card">
+          <h3>소규모 소매점 편의시설 입법부작위 국가배상</h3>
+          <ul>
+            <li><strong>사건:</strong> 대법원 2024. 12. 19. 선고 2022다289051 전원합의체 판결(재판장 대법원장 조희대, 주심 대법관 이숙연) · 원심 서울고등법원 2022. 10. 6. 선고 2022나2009024 판결</li>
+            <li><strong>사안 개요:</strong> 구 「장애인·노인·임산부 등의 편의증진 보장에 관한 법률 시행령」 제3조 [별표 1] 제2호 (가)목의 (1)은 바닥면적 300㎡ 미만인 수퍼마켓·일용품 등의 소매점을 편의시설 설치의무 대상시설에서 제외하여 전체 소규모 소매점의 95% 이상이 면제되었고, 이 규정은 1998. 4. 11. 시행 이후 24년 넘게 개정되지 않았다. 지체장애인인 원고 1, 원고 2와 유아차를 이용하는 비장애인 원고 3은 피고 대한민국이 위법한 부진정 행정입법 부작위로 접근권을 침해하였다며 국가배상법 및 장애인차별금지법에 따른 손해배상을 청구하였다. 피고는 2022. 2. 10. 제1심판결 선고 후인 2022. 4. 27. 대통령령 제32607호로 제외 기준을 50㎡ 미만으로 개정하였다.</li>
+            <li><strong>판시사항:</strong> 장애인의 접근권은 비록 헌법에 명시되지는 않았으나 헌법 제10조, 제11조, 제34조 제1항, 제5항으로부터 도출되는 기본권으로서의 지위를 가진다. 행정청이 정당한 이유 없이 장애인의 접근권 보장을 위한 개선입법의무를 이행하지 않는 행정입법 부작위는 위법하며, 그 권한 불행사가 현저하게 합리성을 잃어 객관적 정당성을 상실한 경우 국가배상법 제2조 제1항의 과실이 인정되어 국가는 정신적 손해에 대한 위자료 지급의무를 진다. 이에 따라 피고는 지체장애인인 원고 1, 원고 2에게 각 100,000원 및 지연손해금을 지급할 의무가 있으나, 비장애인인 원고 3의 편의 증진은 반사적 이익에 불과하여 상당인과관계가 인정되지 않는다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「헌법」 제10조, 제11조, 제34조 제1항, 제34조 제5항 / 「장애인·노인·임산부 등의 편의증진 보장에 관한 법률」 제1조, 제4조, 제6조, 제7조, 구 같은 법 시행령 제3조 [별표 1] 제2호 (가)목의 (1) / 「장애인차별금지 및 권리구제 등에 관한 법률」 제1조, 제4조 제1항 제3호, 제4조 제2항, 제8조, 제18조 제4항, 제46조 제1항, 같은 법 시행령 제11조 / 「장애인의 권리에 관한 협약」 제4조 제1항, 제9조 제1항 / 「국가배상법」 제2조 제1항, 제3조 제5항 / 「민사소송법」 제437조.</li>
+            <li><strong>실무 포인트:</strong> 공중이용시설이나 생활편의시설의 출입구 단차 및 경사로 미설치로 인한 접근권 침해 사안에서, 장애인의 접근권이 헌법상 기본권임을 근거로 국가 및 지자체의 시책 마련 의무와 개선 책임을 추궁하는 데 활용할 수 있다. 특히 활동지원사의 이동보조 등 타인의 도움을 받아 접근할 수 있다는 사정만으로는 장애인 스스로의 힘으로 접근할 권리가 온전히 보장된 것으로 볼 수 없다는 판시를 인용하여, 인적 지원 대체를 이유로 물리적 편의제공을 회피하는 주장을 반박할 수 있다.</li>
+            <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.law.go.kr/precInfoP.do?precSeq=600561" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가법령정보센터 (대법원 2024. 12. 19. 선고 2022다289051 전원합의체)</a>
+                <a href="https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2744" class="source-link" target="_blank" rel="noopener noreferrer">보조 자료 — 대법원 보도자료 (2024-12-19 장애인 접근권 국가배상 판결)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-webaccess-alttxt" class="case-card">
+          <h3>온라인 쇼핑몰 대체 텍스트 미제공 차별</h3>
+          <ul>
+            <li><strong>사건:</strong> 대법원 2026. 3. 12. 선고 2023다255130 판결(대법원 제3부, 공2026상,912) · 원심 서울고등법원 2023. 6. 8. 선고 2021나2013286 판결</li>
+            <li><strong>사안 개요:</strong> 장애의 정도가 심한 시각장애인들인 원고(선정당사자) 등은 온라인 쇼핑몰 웹사이트를 운영하는 통신판매중개업자 피고 주식회사가 사진·그림 속 문자 등 텍스트 아닌 콘텐츠에 대체 텍스트를 제공하지 않거나 미흡하게 제공하여 상품 구매에 어려움을 겪었다고 주장하였다. 원고 등은 피고를 상대로 「장애인차별금지 및 권리구제 등에 관한 법률」 제46조 제1항에 따른 위자료 지급과 같은 법 제48조 제2항에 따른 차별행위 시정을 위한 적극적 조치를 청구하였다. 원심은 원심판결 별지 2 인용 목록 기재 각 사항에 관하여 확정일로부터 6개월 이내에 화면낭독기를 통해 청취할 수 있는 대체 텍스트를 제공하라는 적극적 조치 판결을 하였으나, 피고에게 고의·과실이 없음을 인정하여 위자료 청구는 기각하였고, 대법원은 상고와 부대상고를 모두 기각하였다.</li>
+            <li><strong>판시사항:</strong> 어떤 차별행위가 「장애인차별금지 및 권리구제 등에 관한 법률」 제4조 제1항 각 호 중 둘 이상의 유형에 해당할 수 있으므로 '특정 편의의 미제공' 사안이라는 이유만으로 제2호 '간접차별'의 적용이 배제되지 않는다. 같은 법 제21조 제1항, 시행령 제14조 제2항 제1호의 '접근성이 보장되는 웹사이트'에 해당하기 위해서는 시각장애인이 화면낭독기를 활용할 수 있도록 텍스트 아닌 콘텐츠에 그 의미나 용도를 인식할 수 있는 대체 텍스트가 제공되어야 하며, 개별 판매자가 등록한 상품 정보에 대해서도 배포자인 운영자가 정당한 편의제공 의무를 부담한다. 일정한 재정 부담이 따른다는 이유만으로 같은 법 제4조 제3항의 정당한 사유를 쉽게 인정할 수 없으나, 법원이 제48조 제2항에 따라 사인인 피고에게 재정 부담을 지우는 적극적 조치 판결을 할 때는 비례의 원칙에 따라 공익과 사익을 종합적으로 비교·형량하여야 한다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지 및 권리구제 등에 관한 법률」 제1조, 제3조 제8호 (가)목, 제4조 제1항 제2호, 제4조 제1항 제3호, 제4조 제3항, 제20조 제1항, 제21조 제1항, 제21조 제2항, 제46조 제1항, 제47조 제2항, 제48조 제2항, 제48조 제3항, 같은 법 시행령 제14조 제2항 제1호, 제14조 제6항 제1호 / 「장애인복지법」 제2조, 같은 법 시행령 제2조 제2항, 같은 법 시행규칙 제2조 제1항 [별표 1] / 구 「지능정보화 기본법」 제46조 제1항, 제47조 제1항, 구 같은 법 시행령 제34조 제1항 제1호, 제36조 제2항, 「지능정보화 기본법 시행규칙」 제4조 제2항 [별표 1] / 「장애인·고령자 등의 정보접근 및 이용 편의 증진을 위한 고시」 제3조, 제16조 제2항 [별표 3] / 「민사집행법」 제261조(간접강제) / 「헌법」 제37조 제2항.</li>
+            <li><strong>실무 포인트:</strong> 민간 기업이나 공공기관의 웹사이트·모바일 앱에서 이미지, 배너, 안내문 등의 대체 텍스트가 누락되어 시각장애인의 정보접근권이 침해된 경우, 정당한 편의제공 거부뿐만 아니라 간접차별까지 중첩적으로 주장하는 근거로 쓸 수 있다. 또한 플랫폼 운영자가 입점 업체나 제3자가 올린 콘텐츠라는 이유로 책임을 회피할 때 '배포자'로서의 편의제공 의무를 명확히 묻고, 법원의 시정명령(적극적 조치)과 그 불이행 시 간접강제 배상을 구하는 논거로 활용할 수 있다.</li>
+            <li><strong>유의:</strong> 이 사건에서 위자료 청구는 피고의 고의·과실 없음이 인정되어 기각되었으므로(대법원도 상고 기각으로 확정), 손해배상보다 시정 조치를 중심으로 청구를 구성한다.</li>
+            <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://lx.scourt.go.kr/search/detail/precedent/0/2026000036000" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 대법원 판례속보 (2023다255130 웹사이트 대체 텍스트)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-calltaxi-seat" class="case-card">
+          <h3>발달장애인 장애인콜택시 보조석 탑승 제한</h3>
+          <ul>
+            <li><strong>사건:</strong> 대법원 2025. 6. 12. 선고 2025두32972 판결(대법원 제3부, 재판장 대법관 이흥구, 주심 대법관 노경필) · 원심 서울고등법원 2025. 1. 22. 선고 2023누68076 판결</li>
+            <li><strong>사안 개요:</strong> 서울특별시장으로부터 장애인콜택시의 관리 및 운행을 위탁받은 서울시설공단의 이사장(원고)은 발달장애인이 보조석에 탑승하면 이동 시 돌발행동으로 사고 위험이 있다는 이유로 2열에만 탑승하도록 하는 탑승제한기준을 시행하였다. 피고 국가인권위원회는 2022. 2. 24. 위 기준이 발달장애인의 자기결정권을 침해하고 이동 및 교통수단 이용에서 정당한 사유 없이 불리하게 대우한 차별행위에 해당한다며 기준 개선을 권고하는 결정을 하였다. 원고는 권고결정의 취소를 구하는 소를 제기하였으나 원심이 청구를 기각하였고, 대법원도 상고를 기각하였다.</li>
+            <li><strong>판시사항:</strong> 공공기관 등은 교통약자를 위한 특별교통수단 운행 등의 서비스를 제공할 때 장애를 사유로 정당한 사유 없이 제한·배제·분리·거부 등에 의하여 장애인을 불리하게 대우하여서는 아니 되며, 차별로 보지 않는 정당한 사유가 있었다는 점은 차별행위를 당하였다고 주장하는 자의 상대방이 증명하여야 한다. 장애인차별금지법의 입법 목적에 비추어 금지된 차별행위를 하지 않는 데에 일정한 재정 부담이 따른다는 이유만으로 정당한 사유를 쉽게 인정할 수 없고, 발달장애인의 보조석 탑승 금지 필요성과 권리 침해 정도 등을 고려할 때 이 사건 탑승제한기준은 직무나 사업 수행의 성질상 불가피한 경우나 과도한 부담 등이 있는 경우에 해당하지 않는다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인차별금지 및 권리구제 등에 관한 법률」 제4조 제1항 제1호, 제4조 제3항 제1호, 제4조 제3항 제2호, 제7조 제1항, 제19조 제1항, 제26조 제2항, 제47조 제2항 / 구 「교통약자의 이동편의 증진법」 제2조 제8호, 제16조 제1항, 제16조 제8항 / 「발달장애인 권리보장 및 지원에 관한 법률」 제8조 제1항 / 「국가인권위원회법」 제44조 제1항 제1호 / 「서울특별시 교통약자의 이동편의 증진에 관한 조례」 제13조.</li>
+            <li><strong>실무 포인트:</strong> 특별교통수단(장애인콜택시) 운영기관이나 공공서비스 제공기관이 막연한 '안전 우려'나 '돌발행동 가능성'을 내세워 발달장애인이나 정신적 장애인의 이용 좌석·이용 방식을 일률적으로 제한할 때 차별행위임을 입증하는 직접적 근거로 활용할 수 있다. 아울러 차별행위의 예외인 '정당한 사유'의 증명책임이 기관 측에 있으며 단순한 예산·재정 부담만으로는 면책될 수 없다는 점을 들어 시정을 요구할 수 있다.</li>
+            <li><strong>구역 배치:</strong> 인권위 권고 자체가 아니라 그 권고의 적법성을 정한 대법원 판결이므로 13구역에 두었다. 국가인권위원회 결정·권고를 묶는 15구역으로 옮길 수 있다(사용자 결정 대기).</li>
+            <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://sc.scourt.go.kr/portal/news/NewsViewAction.work?seqnum=5766&gubun=2" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 대법원 보도자료 (2025두32972 장애인콜택시 보조석 탑승 제한)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-finance-guardianship" class="case-card">
+          <h3>피한정후견인 우체국 예금 거래 일률 제한</h3>
+          <ul>
+            <li><strong>사건:</strong> 대법원 2023. 9. 27. 선고 2020다301308 판결(대법원 제2부) · 원심 서울고등법원 2020. 11. 5. 선고 2019나2041059 판결</li>
+            <li><strong>사안 개요:</strong> 가정법원은 원고들에 대한 한정후견을 개시하면서 30일 합산 금액이 100만 원 이상인 예금 이체·인출에 관하여만 한정후견인의 동의를 받도록 행위능력을 제한하는 결정을 하였다. 그럼에도 피고 대한민국 산하 우정사업본부는 원고들에게 100만 원 미만 거래는 통장·인감 등을 지참해 은행창구에서만 거래하도록 하고, 100만 원 이상 300만 원 미만 거래는 한정후견인 동의서를 지참하더라도 단독 거래를 불허하고 한정후견인과 동행하여 창구에서만 거래하도록 제한하였다. 원심은 위 제한 조치가 장애인차별금지법이 금지하는 차별행위에 해당한다며 국가에 위자료 지급을 명하였고, 대법원은 피고의 상고를 기각하였다.</li>
+            <li><strong>판시사항:</strong> 민법상 성년후견제도는 헌법 제10조에 근거하여 의사결정능력이 충분하지 않은 사람도 자기결정권과 잔존능력을 존중하여 필요한 한도에서만 능력을 제한하여야 한다는 점을 기본원칙으로 하며, 피한정후견인의 행위능력 제한 범위는 가정법원 재판에 의하여 결정되고 후견개시심판문 및 후견등기부를 통해 공시된다. 금융상품 및 서비스 제공자가 가정법원이 정한 행위능력 제한 범위를 넘어 피한정후견인의 상태를 임의로 판단해 거래를 제한하는 것은 장애인차별금지법 제4조 제1항 제1호 및 제17조가 금지하는 차별행위에 해당하며, 국가기관은 차별 시정에 가중된 책무를 부담하므로 덜 제한적인 대안이 있음에도 일률적으로 거래를 제한한 조치에는 정당한 사유가 인정되지 않는다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「헌법」 제10조 / 「민법」 제13조 / 「장애인차별금지 및 권리구제 등에 관한 법률」 제1조, 제4조 제1항 제1호, 제4조 제3항, 제8조, 제17조, 제37조, 제46조, 제47조 제1항, 제47조 제2항.</li>
+            <li><strong>실무 포인트:</strong> 은행, 우체국, 보험사 등 금융기관이 피한정후견인이나 정신적 장애인에 대해 후견개시심판문·후견등기부상의 실제 제한 범위를 확인하지 않은 채 관행이나 내부 지침으로 창구 거래만 강제하거나 후견인 동행을 요구하는 금융차별 사례에 대응할 때 핵심 근거로 활용할 수 있다. 특히 성년후견제도의 기본원칙인 잔존능력 존중과 최소 제한 원칙을 인용하여 금융기관의 과잉 보호적 거래 제한이 위법한 차별임을 논증할 수 있다.</li>
+            <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://law.go.kr/LSW/precInfoP.do?mode=0&precSeq=237587" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가법령정보센터 (대법원 2023. 9. 27. 선고 2020다301308)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <!-- Part 4. 법령·조례·예산 (제도 동향) -->
+      <section id="sec-statute" class="category-section" data-group="statutes">
+        <h2>16. 법령·입법</h2>
+        <p class="category-desc">법률·시행령·시행규칙의 제정·개정과 법률안 발의·심사 동향입니다.</p>
+
+        <article id="case-actreform-policy" class="case-card">
+          <h3>장애인권리보장법 시행 준비와 장애인복지법 전부개정안(장애서비스법) 논의</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인복지법 전부개정안과 장애서비스법 전환 — 등록제 폐지·평가기관 분리 논의</span></li>
+            <li><strong>사안 개요:</strong> 2026년 5월 26일 공포되어 2028년 5월 27일 시행 예정인 「장애인권리보장법」의 하위법령 정비와 맞물려, 기존 장애인 등록제를 폐지하고 서비스 필요도 조사 및 평가기관·제공기관 분리를 골자로 하는 여야 의원들의 「장애인복지법 전부개정법률안」(장애서비스법 전환안)이 발의되어 논의 중인 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인권리보장법」(2028-05-27 시행 예정, 현행 효력 없음), 「장애인복지법」 전부개정법률안(발의 단계).</li>
+            <li><strong>실무 포인트:</strong> 미시행 법률과 발의 법안을 현행 효력 법령으로 오인해 인용하지 않도록 시행 시점을 명확히 구분하고, 하위법령 설계 시 서비스 필요도 평가와 권리구제(이의신청·진정) 연계를 모니터링합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30663" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (서미화 의원까지 장애인복지법 전부개정안 발의)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-budget" class="category-section" data-group="statutes">
+        <h2>18. 예산·재정</h2>
+        <p class="category-desc">정부·지방자치단체 예산안, 추가경정예산, 기금, 고용부담금 등 재정 쟁점입니다.</p>
+
+        <article id="case-deinst-policy" class="case-card">
+          <h3>폐쇄 시설 잔류자 '시설 뺑뺑이'와 지역사회자립법·자립지원 예산 삭감 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">시설 폐쇄 후 전원 뺑뺑이와 자립지원 공백 — 반구대병원·색동원·태연재활원</span> <span class="note-ref">2027년 장애인복지예산 자립지원 전액 삭감과 중앙장애인지역사회통합지원센터 예산 미반영</span> <span class="note-ref">장애인지역사회자립법의 CRPD 제19조 입법 번역과 선택적 행정화</span></li>
+            <li><strong>사안 개요:</strong> 학대·사망사고로 폐쇄·폐업한 시설(색동원, 태연재활원, 반구대병원, 제주 사랑의집 등)의 거주인이 지역사회 자립 대신 다른 수용시설로 재전원되는 구조가 반복되고 있으며, 2027년 3월 19일 시행 예정인 「장애인의 지역사회 자립 및 주거 전환 지원에 관한 법률」(지역사회자립법) 시행을 앞두고도 2027년 정부 예산안에서 자립지원 본사업 예산과 중앙장애인지역사회통합지원센터 운영 예산이 삭감·미반영되어 논란이 된 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인의 지역사회 자립 및 주거 전환 지원에 관한 법률」(2025-03-18 공포, 2027-03-19 시행 예정), 「장애인활동 지원에 관한 법률」, UN CRPD 제19조(자립적 생활 및 지역사회 통합) 및 일반논평 제5호.</li>
+            <li><strong>실무 포인트:</strong> 학대·인권침해 시설 폐쇄 시 '자립 의사가 불분명하다'는 이유로 지원 대상에서 배제하지 말고 의사결정지원자를 통한 의사 확인과 개인별 주거·활동지원 연계를 의무화하도록 지자체에 요구해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30614" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (국감: 학대 피해자 다시 시설로·자립지원 예산 0원)</a>
+                <a href="https://www.edaily.co.kr/News/Read?newsId=03719526645617840&mediaCodeNo=257" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 이데일리 (나라살림 93조 늘었는데 노인·장애인 돌봄은 뒷전)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30734" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (국회 복지위 사라진 자립 예산 일부 복원)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-rightsjob-labor" class="case-card">
+          <h3>권리중심 중증장애인 맞춤형 공공일자리 예산 삭감 및 조례 재의 요구 사태</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">경기도 권리중심일자리 예산 삭제와 최중증장애인 880명 고용 위기</span> <span class="note-ref">서울시 권리중심공공일자리 조례 재의 요구 사태</span></li>
+            <li><strong>사안 개요:</strong> 서울시가 2024년 서울형 권리중심공공일자리를 폐지한 뒤 2026년 9월 서울시의회가 가결한 복원 조례안에 대해 재의(거부권)를 요구했고, 경기도 역시 2027년 예산안에서 권리중심공공일자리 사업 항목을 삭제·삭감하여 최중증장애인 노동자 880명의 고용 위기가 불거진 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인고용촉진 및 직업재활법」 제3조(국가와 지방자치단체의 책임), 「장애인차별금지법」 제4조, 「지방자치법」 제120조(재의 요구), UN CRPD 제27조(노동과 고용) 및 제4조 제3항(당사자 참여).</li>
+            <li><strong>진행 경과:</strong> 2026년 10월~11월 장애인 당사자들의 단식·삭발투쟁 및 국회 기후에너지환경노동위원회의 장애인 노동예산 증액 주문이 이어졌으나, 기획예산처가 기금 목적 부합 여부에 대한 추가 검토 입장을 보여 예결위 심의가 진행 중입니다.</li>
+            <li><strong>실무 포인트:</strong> 권리중심공공일자리는 UN 장애인권리위원회 권고에 따라 협약 이행 모니터링과 권익옹호를 직무로 하는 노동권 실현 사업이므로, 예산 삭감 시 지자체의 고용 책임과 당사자 의견수렴 절차 이행 여부를 점검해야 합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30622" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (경기도 권리중심일자리 예산 삭감·단식 예고)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30707" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (경기도 예산안 제출 임박 다이인 행동)</a>
+                <a href="https://www.khan.co.kr/article/202610011102001" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 경향신문 (서울시 권리중심 공공일자리 조례 재의 요구)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+      <section id="sec-admin" class="category-section" data-group="statutes">
+        <h2>19. 행정·집행</h2>
+        <p class="category-desc">실태조사·실태점검, 지침, 시행계획·기본계획, 사업 운영, 관리·감독 등 법령과 예산의 집행 단계 쟁점입니다.</p>
+
+        <article id="case-quota-labor" class="case-card">
+          <h3>공공부문·사법부 장애인 의무고용 미이행 및 고용촉진기금 미집행 쟁점</h3>
+          <ul>
+            <li><strong>관련 브리핑·노트:</strong> <span class="note-ref">2026년 10월 16일 일일 브리핑</span> <span class="note-ref">2026년 11월 7일 일일 브리핑</span></li>
+            <li><strong>사안 개요:</strong> 전국 17개 시·도교육청이 5년 연속, 사법부(법원)가 6년 연속 법정 장애인 의무고용률(3.8%)을 충족하지 못해 수천억 원대 고용부담금을 납부한 반면, 정작 장애인 고용 확대에 쓰여야 할 장애인고용촉진 및 직업재활기금의 약 60%가 미집행 상태로 묶여 있는 구조가 국정감사와 예산 분석에서 드러났습니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「장애인고용촉진 및 직업재활법」 제27조(국가 및 지자체의 장애인 고용의무), 제68조(기금의 설치 및 용도).</li>
+            <li><strong>실무 포인트:</strong> 공공기관 의무고용 미이행 및 기금 미집행 통계를 근거로 지자체·교육청에 장애인 적합 직무 개발, 근로지원인 확충, 전산·문서 배리어프리 환경 조성을 요구할 수 있습니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.yna.co.kr/view/AKR20261002181300004" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 연합뉴스 (법원 6년 연속 장애인 의무고용 미달 과태료 136억)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30687" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (장애인고용촉진기금 60% 내년에도 미집행)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-ilcenter-policy" class="case-card">
+          <h3>장애인활동지원기관 주민세 종업원분 부과 및 입법 정비 쟁점</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">장애인자립생활센터 주민세 종업원분 소급과세와 환급 근거 부재</span></li>
+            <li><strong>사안 개요:</strong> 장애인자립생활센터 등 활동지원기관을 운영하는 비영리법인·단체가 지방세 감면 열거 대상에서 누락되면서 종업원분 주민세와 가산세가 부과되고 이동지원 차량 압류까지 발생한 문제에 대해, 2026년 11월 18일 면제·환급을 위한 「지방세특례제한법 일부개정법률안」이 대표발의된 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「지방세특례제한법」 개정안(발의 단계), 「장애인활동 지원에 관한 법률」.</li>
+            <li><strong>실무 포인트:</strong> 세법 개정 전까지는 부과처분 자체를 위법으로 단정하지 않되, 과세로 인한 활동지원 서비스 위축 실태를 수집해 국회 심사 자료로 제출하고 행정심판·경정청구 절차를 안내합니다.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.ablenews.co.kr/news/articleView.html?idxno=234702" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 에이블뉴스 (김예지 의원 활동지원기관 주민세 면제·환급 입법 추진)</a>
+                <a href="https://www.beminor.com/news/articleView.html?idxno=30626" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 비마이너 (장애인자립생활센터 주민세 종업원분 후속 대책 쟁점)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <article id="case-nhrc-justice" class="case-card">
+          <h3>국가인권위원회 세종 이전 계획 재검토 요구 (접근권 및 독립성)</h3>
+          <ul>
+            <li><strong>관련 노트:</strong> <span class="note-ref">국가인권위원회 세종 이전 재검토 — 파리원칙 독립성과 장애인 접근성</span></li>
+            <li><strong>사안 개요:</strong> 정부의 국가인권위원회 세종시 이전 계획에 대해 세계국가인권기구연합(GANHRI), 아태국가인권기구포럼(APF), 인권위 전원위원회 및 장애계가 사회적 약자의 대면 진정·상담 접근성 저하와 독립성 훼손을 우려하며 재검토를 촉구한 사안입니다.</li>
+            <li><strong>적용 법조문 및 법리:</strong> 「국가인권위원회법」 제3조(독립성), 「장애인차별금지법」 제26조·제38조, 유엔 파리원칙.</li>
+                      <li><strong>원문 확인:</strong>
+              <div class="source-links">
+                <a href="https://www.yna.co.kr/view/AKR20261023077800004" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 연합뉴스 (세계인권기구연합, 인권위 세종 이전 재검토 서한)</a>
+                <a href="https://www.humanrights.go.kr:443/base/board/read?boardManagementNo=24&boardNo=7612406&searchCategory=&page=1&searchType=&searchWord=&menuLevel=3&menuNo=91" class="source-link" target="_blank" rel="noopener noreferrer">원문 보기 — 국가인권위원회 (세종 이전계획 신중 재검토 공식 입장문)</a>
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <p class="section-top"><a href="#toc" class="back-to-top">목차로 돌아가기</a></p>
+      </section>
+
+
+      
+
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const btnContrast = document.getElementById('btn-contrast');
+      const fontBtns = document.querySelectorAll('.font-btn');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('search-input');
+      const searchStatus = document.getElementById('search-status');
+      const sections = document.querySelectorAll('.category-section');
+      const cards = document.querySelectorAll('.case-card');
+
+      let currentFilter = 'all';
+
+      // 고대비 모드 토글
+      btnContrast.addEventListener('click', function() {
+        const isHigh = document.body.classList.toggle('high-contrast');
+        btnContrast.setAttribute('aria-pressed', isHigh);
+        btnContrast.textContent = isHigh ? '초고대비(순흑색) 모드 끄기' : '초고대비(순흑색) 모드 켜기';
+      });
+
+      // 글자 크기 조절
+      fontBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          fontBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+
+          document.body.classList.remove('font-125', 'font-150', 'font-200');
+          const scale = btn.getAttribute('data-scale');
+          if (scale !== '100') {
+            document.body.classList.add('font-' + scale);
+          }
+        });
+      });
+
+      // 필터 및 검색 통합 적용
+      function applyFilterAndSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        sections.forEach(function(sec) {
+          const group = sec.getAttribute('data-group');
+          const groupMatch = (currentFilter === 'all' || currentFilter === group);
+
+          if (!groupMatch) {
+            sec.classList.add('hidden');
+            return;
+          }
+
+          let secHasVisibleCard = false;
+          const secCards = sec.querySelectorAll('.case-card');
+
+          secCards.forEach(function(card) {
+            const text = card.textContent.toLowerCase();
+            if (!query || text.includes(query)) {
+              card.classList.remove('hidden');
+              secHasVisibleCard = true;
+              visibleCount++;
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+
+          if (secHasVisibleCard) {
+            sec.classList.remove('hidden');
+          } else {
+            sec.classList.add('hidden');
+          }
+        });
+
+        if (query) {
+          searchStatus.textContent = "'" + searchInput.value.trim() + "' 검색 결과: 총 " + visibleCount + "개 항목이 표시됩니다.";
+        } else {
+          searchStatus.textContent = "현재 " + visibleCount + "개 항목이 표시되고 있습니다.";
+        }
+      }
+
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+          currentFilter = btn.getAttribute('data-filter');
+          applyFilterAndSearch();
+        });
+      });
+
+      searchInput.addEventListener('input', applyFilterAndSearch);
+
+      // 첫 화면에서도 항목 수를 실제 값으로 계산한다(고정 문구가 낡지 않게)
+      applyFilterAndSearch();
+    })();
+  </script>
+</body>
+</html>
